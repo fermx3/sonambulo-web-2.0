@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+.main {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  pointer-events: none;
+}
+
+/* Decorative shapes used by Hero.tsx */
+.shapeBlue {
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 50vmax;
+  height: 50vmax;
+  background-image: url('/sections/hero/media-luna-azul.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: rotate(-20deg);
+  filter: saturate(130%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.shapeWhiteArc {
+  position: absolute;
+  left: 0;
+  bottom: -6%;
+  width: 50vmax;
+  height: 50vmax;
+  background-image: url('/sections/hero/media-luna-outline.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: rotate(0deg);
+  z-index: 1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.shapeTopBlob {
+  position: absolute;
+  right: -8%;
+  top: -12%;
+  width: 40vmax;
+  height: 30vmax;
+  background-image: url('/sections/hero/forma-amarilla.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(2deg);
+  z-index: 1;
+  opacity: 0.98;
+  pointer-events: none;
+  filter: saturate(120%) contrast(105%);
+}
+
+.shapeTopBlob2 {
+  position: absolute;
+  right: -12%;
+  top: -12%;
+  width: 40vmax;
+  height: 30vmax;
+  background-image: url('/sections/hero/forma-verde-agua.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(2deg);
+  z-index: 1;
+  opacity: 0.98;
+  pointer-events: none;
+  filter: saturate(120%) contrast(105%);
+}
+
+.shapeTopBlobContour {
+  position: absolute;
+  right: -14%;
+  top: -12%;
+  width: 40vmax;
+  height: 30vmax;
+  background-image: url('/sections/hero/forma-contorno-negro.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(2deg);
+  z-index: 9;
+  opacity: 0.98;
+  pointer-events: none;
+  filter: saturate(120%) contrast(105%);
+}
+
+/* placeholder for a thin line/graphic used in markup */
+.shapeTopLines {
+  position: absolute;
+  right: 4%;
+  top: 10%;
+  width: 18vmax;
+  height: 6vmax;
+  background-image: url('/sections/hero/lines.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* right circular ring */
+.shapeRightRing {
+  position: absolute;
+  right: -8%;
+  bottom: 12%;
+  width: 26vmax;
+  height: 22vmax;
+  background-image: url('/sections/hero/contorno-abajo-derecha.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(0) rotate(0deg);
+  z-index: 2;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  filter: saturate(120%);
+}
+
+/* top center-left shapes */
+.shapeTopCenterLeft {
+  position: absolute;
+  left: 18%;
+  top: -14%;
+  width: 26vmax;
+  height: 18vmax;
+  background-image: url('/sections/hero/forma-amarilla-limon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(-8deg);
+  z-index: 2;
+  opacity: 0.98;
+  pointer-events: none;
+  filter: saturate(120%) contrast(105%);
+}
+
+.shapeTopCenterLeftContour {
+  position: absolute;
+  left: 16%;
+  top: -8%;
+  width: 26vmax;
+  height: 18vmax;
+  background-image: url('/sections/hero/contorno-verde-limon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: rotate(-8deg);
+  z-index: 3;
+  opacity: 0.98;
+  pointer-events: none;
+  filter: saturate(120%) contrast(105%);
+}
+
+/* subtle floating animation applied to some shapes */
+@keyframes float {
+  0% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(-1deg); }
+}
+
+.shapeBlue, .shapeTopBlob, .shapeRightRing, .shapeTopCenterLeft {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Logo overlay used to show the big logo */
+.logo {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  pointer-events: auto;
+  transition: all 200ms cubic-bezier(.22,.9,.26,1);
+}
+
+.logoInner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--white);
+  transform-origin: center;
+}
+
+/* logo image and compacted variant */
+.logoImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: transform 700ms ease;
+}
+
+.logoCompact {
+  position: fixed;
+  left: 18px;
+  top: 18px;
+  transform: scale(0.42);
+  transform-origin: left top;
+  z-index: 1500;
+  pointer-events: auto;
+}
+
+/* when overlay is compacted (logo moved to corner) */
+.logoCompact {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 18px;
+  background: transparent;
+  pointer-events: none; /* permitir interacción con la página si lo deseas */
+  height: auto;
+}
+
+/* center welcome image (visible after compact) */
+.centerMessage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 520ms ease 120ms;
+  pointer-events: none;
+  z-index: 6;
+  color: var(--white);
+}
+.centerMessageVisible {
+  opacity: 1;
+}
+.welcomeImage {
+  display: block;
+  max-width: 60vw;
+  height: auto;
+}
+
+/* tagline and compact variant */
+.tagline {
+  position: absolute;
+  right: 6%;
+  bottom: 4%;
+  color: rgba(255,255,255,0.9);
+  font-size: clamp(14px, 2.6vw, 38px);
+  transition: transform 500ms ease, font-size 500ms ease, opacity 400ms;
+  z-index: 6;
+}
+.taglineSmall {
+  font-size: 28px;
+  right: 5%;
+  bottom: 5%;
+  opacity: 0.9;
+}
+
+/* allow interaction when compact */
+.canvasInteractive {
+  pointer-events: auto;
+}
+
+/* ajuste: ESTUDIO proporcionalmente más chico en móvil */
+@media (max-width: 600px) {
+  .estudio {
+    /* reducir alrededor de 20-25% en móviles */
+    font-size: clamp(10px, 3.2vw, 15px);
+    letter-spacing: 8px;
+    margin-top: 10px;
+  }
+}

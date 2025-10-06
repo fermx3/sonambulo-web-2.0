@@ -1,0 +1,108 @@
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import type { JSX } from 'react';
+import classes from './Hero.module.scss';
+
+export default function Hero(): JSX.Element {
+  const MIN_VISIBLE_MS = 1000; // mantener logo grande al menos 1s durante el loader
+  const [compact, setCompact] = useState<boolean>(false);
+  const loadedRef = useRef<boolean>(false);
+  const minElapsedRef = useRef<boolean>(false);
+  const timerRef = useRef<number | null>(null);
+  const compactedRef = useRef<boolean>(false); // evita llamadas repetidas a setCompact
+
+  useEffect(() => {
+    const tryCompact = () => {
+      if (compactedRef.current) return;
+      if (loadedRef.current && minElapsedRef.current) {
+        compactedRef.current = true;
+        // pequeña demora para permitir transiciones suaves
+        window.setTimeout(() => setCompact(true), 90);
+      }
+    };
+
+    const onLoad = () => {
+      loadedRef.current = true;
+      tryCompact();
+    };
+
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      window.addEventListener('load', onLoad);
+    }
+
+    timerRef.current = window.setTimeout(() => {
+      minElapsedRef.current = true;
+      tryCompact();
+    }, MIN_VISIBLE_MS);
+
+    return () => {
+      window.removeEventListener('load', onLoad);
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      <main className={classes.main}>
+        {/* overlay: durante el loader solo mostramos el logo grande */}
+        <div
+          className={`${classes.logo} ${compact ? classes.logoCompact : ''}`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className={classes.logoInner}>
+            <Image
+              src={compact ? '/logo-compact-dark-bg.svg' : '/logo-dark-bg.svg'}
+              alt="Sonámbulo"
+              width={640}
+              height={240}
+              sizes="(min-width: 1200px) 640px, (min-width: 768px) 520px, 360px"
+              className={`${classes.logoImage} ${compact ? classes.logoCompact : ''}`}
+              priority
+            />
+          </div>
+        </div>
+
+        <div className={`${classes.canvas} ${compact ? classes.canvasInteractive : ''}`}>
+          {/* Decorative shapes */}
+          <div className={classes.shapeBlue} aria-hidden="true" />
+          <div className={classes.shapeWhiteArc} aria-hidden="true" />
+          <div className={classes.shapeTopBlobContour} aria-hidden="true" />
+          <div className={classes.shapeTopBlob} aria-hidden="true" />
+          <div className={classes.shapeTopBlob2} aria-hidden="true" />
+          <div className={classes.shapeTopLines} aria-hidden="true" />
+          <div className={classes.shapeRightRing} aria-hidden="true" />
+          <div className={classes.shapeTopCenterLeftContour} aria-hidden="true" />
+          <div className={classes.shapeTopCenterLeft} aria-hidden="true" />
+
+          {/* Imagen "Bienvenidos" centrada — aparece cuando compact */}
+          <section
+            className={`${classes.centerMessage} ${compact ? classes.centerMessageVisible : ''}`}
+            aria-hidden={compact ? false : true}
+          >
+            <Image
+              src="/sections/hero/bienvenidos.png"
+              alt="Bienvenidos a Sonámbulo"
+              width={720}
+              height={224}
+              sizes="(min-width: 1200px) 720px, (min-width: 768px) 520px, 360px"
+              className={classes.welcomeImage}
+              priority
+            />
+          </section>
+
+          {/* Tagline bottom-right — se reduce cuando compact */}
+          <div className={`${classes.tagline} ${compact ? classes.taglineSmall : ''}`}>
+            ( Creativity without rest )
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}

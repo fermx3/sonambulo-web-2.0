@@ -3,9 +3,9 @@
 
 export default function How() {
   return (
-    <div className='relative overflow-hidden bg-[#222] min-h-screen flex items-center justify-center'>
+  <div className='relative overflow-hidden bg-[var(--color-ink)] min-h-screen flex items-center justify-center'>
       {/* Top decorative strip (neon + torn paper placeholder) */}
-      <div className="absolute left-0 right-0 top-0 h-12 bg-[#d7ff1a]" aria-hidden />
+  <div className="absolute left-0 right-0 top-0 h-12 bg-[var(--color-lime)]" aria-hidden />
       <div
         className="absolute left-0 right-0 top-12 h-20 bg-[url('/sections/hero/contorno-abajo-derecha.png')] bg-no-repeat bg-center opacity-30"
         aria-hidden
@@ -33,11 +33,6 @@ export default function How() {
               <p className="mt-6 text-base md:text-lg text-white/70 max-w-2xl">
                 Resolvemos los puntos críticos del viaje del cliente, combinando creatividad estratégica, diseño y tecnología para marcas que quieren destacar.
               </p>
-
-              {/* CTA placeholder (optional) */}
-              <div className="mt-8">
-                <button className="inline-flex items-center gap-3 bg-[#d7ff1a] text-black font-bold px-6 py-3 rounded-md shadow-lg">Ver casos</button>
-              </div>
             </div>
           </div>
 
@@ -54,7 +49,7 @@ export default function How() {
               </div>
 
               {/* accent blob bottom-right */}
-              <div className="absolute -right-6 bottom-[-20px] w-36 h-36 bg-[#d7ff1a] rounded-full filter blur-sm opacity-90 pointer-events-none" aria-hidden />
+              <div className="absolute -right-6 bottom-[-20px] w-36 h-36 bg-[var(--color-lime)] rounded-full filter blur-sm opacity-90 pointer-events-none" aria-hidden />
 
               {/* white circular stroke */}
               <svg className="absolute -right-10 -top-8 w-36 h-36" viewBox="0 0 100 100" fill="none" aria-hidden>
@@ -66,7 +61,7 @@ export default function How() {
       </div>
 
       {/* Bottom torn strip */}
-      <div className="absolute left-0 right-0 bottom-0 h-20 bg-gradient-to-t from-[#d7ff1a] to-transparent pointer-events-none" aria-hidden />
+  <div className="absolute left-0 right-0 bottom-0 h-20 bg-gradient-to-t from-[var(--color-lime)] to-transparent pointer-events-none" aria-hidden />
     </div>
   );
 }

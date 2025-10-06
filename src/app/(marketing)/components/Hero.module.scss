@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
-.main {
+.mainContainer {
   min-height: 100vh;
   margin: 0;
-  background: var(--bg);
+  background: var(--color-ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: var(--white);
   display: flex;
@@ -105,7 +105,7 @@
 }
 
 /* placeholder for a thin line/graphic used in markup */
-.shapeTopLines {
+/* .shapeTopLines {
   position: absolute;
   right: 4%;
   top: 10%;
@@ -118,7 +118,7 @@
   z-index: 2;
   pointer-events: none;
   opacity: 0.9;
-}
+} */
 
 /* right circular ring */
 .shapeRightRing {
@@ -206,6 +206,7 @@
 
 /* logo image and compacted variant */
 .logoImage {
+  position: relative;
   display: block;
   max-width: 100%;
   height: auto;

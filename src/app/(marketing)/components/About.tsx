@@ -21,7 +21,10 @@ const STEPS = [
 
 // Config: how much extra scroll progress the final step should hold (0-1 range)
 // Tune this value to adjust how long the last step remains visible before transition
-const EXTRA_HOLD = 0.12;
+const EXTRA_HOLD = 0.2;
+// Additional fixed viewport height (vh) to add to the section to allow extra hold
+// Increase this if you need the final step to have more physical scroll space.
+const EXTRA_VH = 200; // 20vh extra by default
 
 // compute an inclusive window for each step inside [0,1] scroll progress
 function windowFor(index: number, total: number) {
@@ -32,7 +35,8 @@ function windowFor(index: number, total: number) {
 	let pad = Math.min(0.06, slice / 4);
 	// If this is the final step, give it more visible time before fading out
 	if (index === total - 1) {
-		pad = Math.min(0.02, pad / 3);
+		// make the fade pad very small so the 'out' point is very close to the end (visible longer)
+		pad = Math.min(0.005, pad / 12);
 		// explicit extra hold for the last step (cap so end <= 1)
 		const extraHold = Math.min(EXTRA_HOLD, slice * 0.5);
 		end = Math.min(1, end + extraHold);
@@ -43,8 +47,8 @@ function windowFor(index: number, total: number) {
 export default function About() {
 	const stepsCount = STEPS.length;
 	// wrapper height: N * 100vh
-	// add EXTRA_HOLD (fraction) converted to vh so the final step can hold longer
-	const totalVh = useMemo(() => stepsCount * 100 + EXTRA_HOLD * 100, [stepsCount]);
+	// add EXTRA_HOLD (fraction) converted to vh plus a fixed EXTRA_VH so the final step can hold longer
+	const totalVh = useMemo(() => stepsCount * 100 + EXTRA_HOLD * 100 + EXTRA_VH, [stepsCount]);
 
 	const sectionRef = useRef<HTMLDivElement | null>(null);
 	const { scrollYProgress } = useScroll({
@@ -86,7 +90,7 @@ export default function About() {
 				className="absolute bottom-20 mx-auto px-6 text-center pointer-events-none flex flex-col items-center"
 			>
 				{/* Eyebrow: fixed-width block so long lines wrap into two balanced lines */}
-				<p className="text-[32px] mx-auto mb-3 w-[170px] md:w-[220px] lg:w-[210px] bg-[#222] px-3 py-2 text-white leading-snug text-start text-wrap">
+				<p className="text-[32px] mx-auto mb-3 w-[170px] md:w-[220px] lg:w-[210px] bg-[var(--color-ink)] px-3 py-2 text-white leading-snug text-start text-wrap">
 				{step.eyebrow}
 				</p>
 
@@ -104,11 +108,10 @@ export default function About() {
 	}
 
 	return (
-		<section
+		<div
 			ref={sectionRef}
-			id="about"
 			style={{ minHeight: `${totalVh}vh` }}
-			className="relative bg-[#CEFF00] text-black"
+	className="relative bg-[var(--color-lime)] text-black"
 		>
 			{/* Sticky container that occupies the viewport while scrolling through the section */}
 			<div className="sticky top-0 h-screen">
@@ -137,6 +140,6 @@ export default function About() {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }

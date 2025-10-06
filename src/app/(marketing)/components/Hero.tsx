@@ -49,7 +49,7 @@ export default function Hero(): JSX.Element {
 
   return (
     <>
-      <main className={classes.main}>
+      <div className={classes.mainContainer}>
         {/* overlay: durante el loader solo mostramos el logo grande */}
         <div
           className={`${classes.logo} ${compact ? classes.logoCompact : ''}`}
@@ -102,7 +102,7 @@ export default function Hero(): JSX.Element {
             ( Creativity without rest )
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

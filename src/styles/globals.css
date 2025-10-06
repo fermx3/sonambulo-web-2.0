@@ -29,11 +29,11 @@ body {
  /* Tokens rápidos */
 :root{
   --radius: 1rem;
-  --bg: #222;
-  --accent-neon: #d7ff1a; /* neon green */
-  --turquoise: #2df0c0;
-  --blue: #0026ff;
-  --white: #ffffff;
+  --color-ink: #222222; /* ink */
+  --color-lime: #d7fc00; /* lime */
+  --color-teal: #00ffbd; /* teal */
+  --color-blue: #0101ff; /* blue */
+  --color-white: #FFFFFF;
 }
 
 /* Global resets */
@@ -42,3 +42,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+ @theme {
+    --color-lime: #d7fc00,
+ }

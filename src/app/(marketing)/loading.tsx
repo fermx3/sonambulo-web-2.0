@@ -5,7 +5,7 @@ export default function Loading() {
     <div
       role="status"
       aria-label="Cargando recursos"
-      className="fixed inset-0 z-0 flex h-screen w-screen items-center justify-center bg-transparent backdrop-blur-sm pointer-events-none transition-opacity duration-300"
+  className="fixed relative inset-0 z-0 flex h-screen w-screen items-center justify-center bg-[var(--color-ink)] backdrop-blur-sm pointer-events-none transition-opacity duration-300"
     >
       <div className="flex items-center justify-center pointer-events-none">
         <Image

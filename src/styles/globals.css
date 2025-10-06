@@ -45,4 +45,19 @@ body {
 
  @theme {
     --color-lime: #d7fc00,
+    --color-ink: #222222,
+    --color-cust-teal: #00ffbd,
+    --color-cust-blue: #0101ff,
+    --color-cust-white: #FFFFFF,
+ }
+
+ .masked {
+   -webkit-mask-image: url('/sections/how/recorte-papel.png');
+   -webkit-mask-size: cover;
+   -webkit-mask-repeat: no-repeat;
+   -webkit-mask-position: top;
+   mask-image: url('/sections/how/recorte-papel.png');
+   mask-size: contain;
+   mask-repeat: no-repeat;
+   mask-position: center;
  }

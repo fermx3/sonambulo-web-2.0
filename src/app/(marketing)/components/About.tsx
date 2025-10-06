@@ -90,9 +90,9 @@ export default function About() {
 				className="absolute bottom-20 mx-auto px-6 text-center pointer-events-none flex flex-col items-center"
 			>
 				{/* Eyebrow: fixed-width block so long lines wrap into two balanced lines */}
-				<p className="text-[32px] mx-auto mb-3 w-[170px] md:w-[220px] lg:w-[210px] bg-[var(--color-ink)] px-3 py-2 text-white leading-snug text-start text-wrap">
-				{step.eyebrow}
-				</p>
+        <p className="mx-auto mb-3 w-[170px] md:w-[220px] lg:w-[210px] bg-[var(--color-ink)] px-3 py-2 text-white leading-snug text-start text-wrap text-[14px] sm:text-[14px] md:text-[21px] lg:text-[32px]">
+        {step.eyebrow}
+        </p>
 
 				<h3 className="text-[36px] md:text-[64px] font-extrabold leading-tight tracking-tight text-black">
 					{step.title}

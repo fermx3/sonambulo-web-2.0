@@ -4,10 +4,16 @@ import Image from "next/image";
 
 export default function How() {
   return (
-    <div className="relative bg-[var(--color-ink)] min-h-[200vh] flex items-center justify-center flex-col">
+    <div
+      className="relative bg-[var(--color-ink)] min-h-[200vh] flex items-center justify-center flex-col overflow-x-hidden"
+      style={{
+      backgroundImage:
+        "linear-gradient(to bottom, var(--color-lime) 0, var(--color-lime) var(--how-lime-band, 22dvh), var(--color-ink) var(--how-lime-band, 18dvh), var(--color-ink) 100%)",
+      }}
+    >
       {/* Top decorative strip (torn paper) */}
       <div
-        className="absolute w-dvw left-0 right-0 -top-[95dvh] h-full bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain"
+        className="absolute w-dvw left-0 right-0 -top-[80dvh] h-full bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
         aria-hidden
       />
 
@@ -23,7 +29,7 @@ export default function How() {
               </p>
 
               <h2 className="font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight">
-                <span className="block mt-2 text-lime">BLINDAMOS</span>
+                <span className="block mt-2 text-[var(--color-lime)]">BLINDAMOS</span>
                 <span className="block text-2xl md:text-3xl font-medium mt-2 text-white/80">
                   a las marcas desde el{" "}
                   <span className="text-[var(--color-teal)]">trade</span> hasta

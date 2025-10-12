@@ -25,7 +25,11 @@ export default function Process() {
 
   return (
     <div className="relative min-h-[120dvh] w-full overflow-hidden bg-[var(--color-blue)]">
-      <div className="relative min-h-[80dvh] flex flex-col justify-center items-center">
+      <div
+        className="absolute w-dvw left-0 right-0 -top-[43dvh] h-full bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+        aria-hidden
+      />
+      <div className="relative min-h-[110dvh] flex flex-col justify-center items-center">
         <div className="container mx-auto px-6 lg:px-12 pt-20 pb-34 lg:pb-20">
           {/* Top title */}
           <h2
@@ -50,29 +54,16 @@ export default function Process() {
           </h2>
           {/* Cards row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-stretch mx-12">
-            {cards
-              .map((c, idx) => (
-                <ProcessCard
-                  key={idx}
-                  src={c.src}
-                  alt={c.alt}
-                  topText={c.topText}
-                  bottomText={c.bottomText}
-                />
-              ))}
+            {cards.map((c, idx) => (
+              <ProcessCard
+                key={idx}
+                src={c.src}
+                alt={c.alt}
+                topText={c.topText}
+                bottomText={c.bottomText}
+              />
+            ))}
           </div>
-        </div>
-
-        {/* bottom diagonal ribbons (repeated "CAPABILITIES") */}
-        <div className="absolute lg:-bottom-70 bottom-0 left-0 right-0 pointer-events-none z-50">
-          <Image
-            src="/sections/process/capabilities-ribbon.png"
-            alt="Capabilities"
-            width={1920}
-            height={200}
-            className="w-[200vw] mx-auto"
-            priority={false}
-          />
         </div>
       </div>
     </div>

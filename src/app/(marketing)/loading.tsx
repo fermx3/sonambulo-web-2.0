@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Loading() {
   return (
     <div
       role="status"
       aria-label="Cargando recursos"
-  className="fixed relative inset-0 z-0 flex h-screen w-screen items-center justify-center bg-[var(--color-ink)] backdrop-blur-sm pointer-events-none transition-opacity duration-300"
+      className="fixed inset-0 z-0 flex h-screen w-screen items-center justify-center bg-[var(--color-ink)] backdrop-blur-sm pointer-events-none transition-opacity duration-300"
     >
       <div className="flex items-center justify-center pointer-events-none">
         <Image
@@ -16,7 +16,7 @@ export default function Loading() {
           height={128}
           priority
           className="block motion-safe:animate-pulse"
-          style={{ width: 'clamp(72px, 12vw, 128px)', height: 'auto' }}
+          style={{ width: "clamp(72px, 12vw, 128px)", height: "auto" }}
         />
       </div>
 

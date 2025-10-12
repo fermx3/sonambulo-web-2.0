@@ -26,8 +26,8 @@ body {
 }
  */
 
- /* Tokens rápidos */
-:root{
+/* Tokens rápidos */
+:root {
   --radius: 1rem;
   --color-ink: #201f1f; /* ink */
   --color-lime: #d9ff03; /* lime */
@@ -37,11 +37,11 @@ body {
 }
 
 /* Global resets */
-*, *::before, *::after {
+/* body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 @theme {
   --color-ink: #201f1f,
@@ -52,12 +52,50 @@ body {
  }
 
 .masked {
-   -webkit-mask-image: url('/sections/how/recorte-papel.png');
-   -webkit-mask-size: cover;
-   -webkit-mask-repeat: no-repeat;
-   -webkit-mask-position: top;
-   mask-image: url('/sections/how/recorte-papel.png');
-   mask-size: contain;
-   mask-repeat: no-repeat;
-   mask-position: center;
+  -webkit-mask-image: url("/sections/how/recorte-papel.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: top;
+  mask-image: url("/sections/how/recorte-papel.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Animations */
+.float-slow {
+  animation: floatY 9s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-0.4deg);
+  }
+}
+
+.blob-pulse {
+  animation: blobDrift 7.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes blobDrift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(8px, -8px) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-slow,
+  .blob-pulse {
+    animation: none;
+  }
 }

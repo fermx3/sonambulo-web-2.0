@@ -8,6 +8,7 @@ import How2 from "./components/How2";
 import Process from "./components/Process";
 import Capabilities from "./components/Capabilities";
 import Clients from "./components/Clients";
+import Contact from "./components/Contact";
 
 export default function Page() {
   return (
@@ -42,7 +43,7 @@ export default function Page() {
         <Clients />
       </Section>
       <Section id="contact">
-        <p>Contacto…</p>
+        <Contact />
       </Section>
     </main>
   );

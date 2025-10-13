@@ -7,6 +7,7 @@ import How from "./components/How";
 import How2 from "./components/How2";
 import Process from "./components/Process";
 import Capabilities from "./components/Capabilities";
+import Clients from "./components/Clients";
 
 export default function Page() {
   return (
@@ -24,7 +25,7 @@ export default function Page() {
       <Section id="process">
         <Process />
       </Section>
-      <div className="relative -mt-24 lg:-mt-32 pointer-events-none z-50">
+      <div className="relative -mt-24 lg:-mt-24 pointer-events-none z-50">
         <Image
           src="/sections/process/capabilities-ribbon.png"
           alt="Capabilities"
@@ -38,7 +39,7 @@ export default function Page() {
         <Capabilities />
       </Section>
       <Section id="clients">
-        <p>Clientes / Proyectos…</p>
+        <Clients />
       </Section>
       <Section id="contact">
         <p>Contacto…</p>

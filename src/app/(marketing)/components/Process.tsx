@@ -24,9 +24,9 @@ export default function Process() {
   ];
 
   return (
-    <div className="relative min-h-[120dvh] w-full overflow-hidden bg-[var(--color-blue)]">
+    <div className="relative min-h-[110dvh] w-full overflow-hidden bg-[var(--color-blue)]">
       <div
-        className="absolute w-dvw left-0 right-0 -top-[43dvh] h-full bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+        className="absolute w-dvw left-0 right-0 -top-[38dvh] h-full bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
         aria-hidden
       />
       <div className="relative min-h-[110dvh] flex flex-col justify-center items-center">

@@ -8,7 +8,7 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="min-h-[110dvh] -mt-50 pt-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover" >
+    <div className="min-h-[110dvh] -mt-54 pt-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover" >
       <h2 className="text-white font-extrabold text-4xl md:text-5xl mb-24">CAPABILITIES</h2>
 
       <div className="w-full space-y-8">

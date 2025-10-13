@@ -43,13 +43,13 @@ body {
   box-sizing: border-box;
 } */
 
-@theme {
+/* @theme {
   --color-ink: #201f1f,
   --color-cust-white: #f2efeb,
   --color-lime: #d9ff03,
   --color-cust-teal: #33ffc2,
   --color-cust-blue: #0606ff,
- }
+ } */
 
 .masked {
   -webkit-mask-image: url("/sections/how/recorte-papel.png");
@@ -90,6 +90,39 @@ body {
   50% {
     transform: translate(8px, -8px) scale(1.06);
     opacity: 1;
+  }
+}
+
+.marquee {
+  animation: marquee 10s linear infinite;
+  display: inline-flex;
+}
+/* pausa la animación al hacer hover o focus dentro */
+.marquee:hover,
+.marquee:focus-within {
+  animation-play-state: paused;
+}
+
+.marquee-item img {
+  transition: transform 300ms ease, filter 300ms ease;
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* zoom suave en hover/focus del item */
+.marquee-item:hover img,
+.marquee-item:focus-within img {
+  transform: scale(1.08);
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none !important;
+  }
+  .marquee-item img {
+    transition: none !important;
+    transform: none !important;
   }
 }
 

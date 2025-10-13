@@ -1,0 +1,61 @@
+import React from "react";
+import Image from "next/image";
+
+export default function Clients() {
+  const images: { src: string; alt?: string }[] = [
+    { src: "/sections/clients/blends.png", alt: "Blends" },
+    { src: "/sections/clients/cerveceria.png", alt: "Cerveceria el secreto" },
+    { src: "/sections/clients/colectivo.png", alt: "Colectivo Circular" },
+    { src: "/sections/clients/leales.png", alt: "Los leales" },
+  ];
+
+  // duplicamos para que el marquee se vea continuo
+  const marqueeList = [...images, ...images, ...images, ...images, ...images];
+
+  return (
+    <div className="min-h-screen w-full relative overflow-hidden bg-[#E6FF00]">
+      {/* decoraciones absolutas */}
+      <div className="absolute inset-x-0 top-0 h-36 flex items-center justify-center pointer-events-none">
+        <h2 className="uppercase font-extrabold text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl tracking-wide leading-none">
+          <span className="block whitespace-nowrap">NUESTR*S</span>
+          <span className="block whitespace-nowrap">CLIENTES</span>
+        </h2>
+      </div>
+
+      {/* contenido central: dejar espacio para el título */}
+      <div className="pt-36 pb-24 flex flex-col items-center">
+        <div className="w-full">
+          {/* banda horizontal con carrusel tipo marquee */}
+            <div
+              className="inline-flex marquee"
+              aria-hidden="true"
+            >
+              {marqueeList.map((item, i) => (
+                <div
+                  key={i}
+                  className="marquee-item flex-shrink-0 w-[9rem] aspect-103/267 bg-gray-200 overflow-hidden relative"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt ?? `cliente-${i}`}
+                    className="object-cover"
+                    draggable={false}
+                    fill
+                    sizes="(max-width: 640px) 9rem, (max-width: 768px) 12rem, 14rem"
+                    priority={false}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      {/* estilos inline para la animación marquee y hover/zoom */}
+      <style>{`
+        @keyframes marquee {
+          to { translate: calc(-${images.length} * 9rem); }
+        }
+      `}</style>
+    </div>
+  );
+}

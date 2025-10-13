@@ -15,7 +15,14 @@ export default function CapabilityItem({
   bullets = ["Bullet 1", "Bullet 2", "Bullet 3"],
 }: Props) {
   const [active, setActive] = useState(false);
-  const [isHoverable, setIsHoverable] = useState(false);
+  const [isHoverable, setIsHoverable] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    } catch {
+      return false;
+    }
+  });
 
   // Detect devices that support hover (desktop) vs coarse pointer (mobile)
   useEffect(() => {
@@ -62,23 +69,45 @@ export default function CapabilityItem({
         aria-expanded={active}
         aria-label={titulo}
       >
-        <div className="flex flex-col items-start">
-          <h3 className="text-white font-extrabold uppercase text-lg md:text-2xl lg:text-3xl tracking-wide flex-1">
-            {titulo}
-          </h3>
+        <div className="flex flex-col items-start w-full">
+          <div className="w-full flex items-center justify-between">
+            <h3 className="text-[var(--color-white)] font-extrabold uppercase text-lg md:text-2xl lg:text-3xl tracking-wide flex-1">
+              {titulo}
+            </h3>
+
+            {/* triangle / chevron indicator */}
+            <span
+              className="ml-4 flex items-center justify-center pointer-events-none"
+              aria-hidden="true"
+            >
+              <svg
+                className={`h-5 w-5 text-[var(--color-white)] transform transition-transform duration-200 ease-out ${
+                  active ? "rotate-180" : "rotate-0"
+                }`}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M5.23 7.21a.75.75 0 011.06-.02L10 10.94l3.71-3.75a.75.75 0 111.08 1.04l-4.25 4.3a.75.75 0 01-1.08 0L5.25 8.23a.75.75 0 01-.02-1.06z" />
+              </svg>
+            </span>
+          </div>
 
           {/* expanded content */}
           <div
-            className={`transition-all duration-300 text-white text-sm md:text-base leading-relaxed max-w-xl ${
-              active ? "opacity-100 max-h-[800px] mt-4 md:mt-0" : "opacity-0 max-h-0 pointer-events-none"
+            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] text-sm md:text-base leading-relaxed max-w-xl overflow-hidden ${
+              active
+                ? "opacity-100 scale-y-100 max-h-[800px] mt-4 md:mt-0"
+                : "opacity-0 scale-y-0 max-h-0 pointer-events-none"
             }`}
+            style={{ willChange: "opacity, transform" }}
             aria-hidden={!active}
           >
             {description && <p className="mb-3">{description}</p>}
             {bullets.length > 0 && (
               <ul className="list-disc pl-5 space-y-1">
                 {bullets.map((b, i) => (
-                  <li key={i} className="text-white/90">
+                  <li key={i} className="text-[var(--color-white)]">
                     {b}
                   </li>
                 ))}

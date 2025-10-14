@@ -219,17 +219,19 @@
   top: 18px;
   transform: scale(0.42);
   transform-origin: left top;
-  z-index: 1500;
-  pointer-events: auto;
-}
-
-/* when overlay is compacted (logo moved to corner) */
-.logoCompact {
+  z-index: 1600; /* mayor que el overlay para asegurar clics */
+  pointer-events: auto; /* permitir interacción */
   align-items: flex-start;
   justify-content: flex-start;
   padding: 18px;
   background: transparent;
-  pointer-events: none; /* permitir interacción con la página si lo deseas */
+  height: auto;
+  transition: transform 200ms cubic-bezier(.22,.9,.26,1);
+}
+
+/* when overlay is compacted (logo moved to corner) */
+.logoCompact {
+  /* permitir interacción con la página si lo deseas */
   height: auto;
 }
 

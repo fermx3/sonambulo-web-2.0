@@ -19,7 +19,7 @@ export default function Contact() {
       </div>
       <div className="min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover">
         {/* "tienes un problema?" image */}
-        <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-32">
+        <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-12">
           <Image
             src="/sections/contact/tienes-un-problema.png"
             alt="tienes un problema?"
@@ -28,7 +28,7 @@ export default function Contact() {
             priority={true}
           />
         </div>
-        <div className="relative z-10 mx-auto py-24 flex flex-col md:flex-row items-end-safe h-[110vh] gap-12">
+        <div className="relative z-10 mx-auto py-54 md:py-24 flex flex-col md:flex-row items-end-safe h-[110vh] md:gap-12">
           {/* left: big CONTACT T* + phone image */}
           <div className="w-full flex items-center justify-center gap-6">
             <div className="absolute bottom-0 left-0 flex-shrink-0 w-56 md:w-80 lg:w-96">

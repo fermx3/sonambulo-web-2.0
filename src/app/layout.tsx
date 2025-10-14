@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "../../styles/globals.css";
+import "@/styles/globals.css";
 import { ReactNode } from "react";
-import SmoothScroll from "./components/SmoothScroll";
+import SmoothScroll from "./(marketing)/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Sonámbulo Estudio Creativo",

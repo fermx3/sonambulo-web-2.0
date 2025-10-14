@@ -13,7 +13,7 @@ export default function How() {
     >
       {/* Top decorative strip (torn paper) */}
         <div
-          className="absolute w-dvw left-0 right-0 top-0 h-[50vh] bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+          className="absolute w-dvw left-0 right-0 top-0 h-[51vh] bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
           aria-hidden
         />
         {/* Frase "Ok, pero todos dicen eso" arriba a la izquierda */}

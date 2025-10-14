@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Clients() {
-  const images: { src: string; alt?: string }[] = [
-    { src: "/sections/clients/blends.png", alt: "Blends" },
-    { src: "/sections/clients/cerveceria.png", alt: "Cerveceria el secreto" },
-    { src: "/sections/clients/colectivo.png", alt: "Colectivo Circular" },
-    { src: "/sections/clients/leales.png", alt: "Los leales" },
+  const images: {
+    link?: string; src: string; alt?: string
+}[] = [
+    { src: "/sections/clients/blends.png", alt: "Blends", link: "/portfolio/blends" },
+    { src: "/sections/clients/cerveceria.png", alt: "Cerveceria el secreto", link: "/portfolio/cerveceria-el-secreto" },
+    { src: "/sections/clients/colectivo.png", alt: "Colectivo Circular", link: "/portfolio/colectivo-circular" },
+    { src: "/sections/clients/leales.png", alt: "Los leales", link: "/portfolio/los-leales" },
   ];
 
   // duplicamos para que el marquee se vea continuo
@@ -15,7 +18,7 @@ export default function Clients() {
   return (
     <div className="min-h-[90vh] w-full relative overflow-hidden bg-[var(--color-lime)]">
 
-      <div className="relative inset-x-0 top-0 h-36 flex items-center justify-center pt-40">
+      <div className="relative inset-x-0 top-0 h-36 flex items-center justify-center md:pt-40">
         <h2 className="uppercase font-extrabold text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl tracking-wide leading-none">
           <span className="block whitespace-nowrap">NUESTR<span>
             <Image
@@ -23,7 +26,8 @@ export default function Clients() {
               alt="asterisco sonambulo"
               width={48}
               height={48}
-              className="inline-block -mt-2 md:-mt-3 lg:-mt-4 mx-1"
+              style={{ width: "0.8em", height: "0.8em" }}
+              className="inline-block align-middle -mt-2 md:-mt-3 lg:-mt-4 mx-1"
               draggable={false}
               priority={true}
             />
@@ -33,7 +37,7 @@ export default function Clients() {
       </div>
 
       {/* contenido central: dejar espacio para el título */}
-      <div className="relative pt-36 pb-24 flex flex-col items-center">
+      <div className="relative md:pt-36 pb-24 flex flex-col items-center">
         <div className="w-full">
           {/* banda horizontal con carrusel tipo marquee */}
             <div
@@ -45,6 +49,14 @@ export default function Clients() {
                   key={i}
                   className="marquee-item flex-shrink-0 w-[9rem] aspect-103/267 bg-[var(--color-white)] overflow-hidden relative"
                 >
+                  <Link
+                    href={item.link ?? "#"}
+                    className="absolute inset-0 z-10"
+                    target={item.link ? "_blank" : undefined}
+                    rel={item.link ? "noopener noreferrer" : undefined}
+                  >
+                    <span className="sr-only">{item.alt ?? `cliente-${i}`}</span>
+                  </Link>
                   <Image
                     src={item.src}
                     alt={item.alt ?? `cliente-${i}`}

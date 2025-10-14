@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { JSX } from 'react';
 import classes from './Hero.module.scss';
+import Link from 'next/link';
 
 export default function Hero(): JSX.Element {
   const MIN_VISIBLE_MS = 1000; // mantener logo grande al menos 1s durante el loader
@@ -57,15 +58,48 @@ export default function Hero(): JSX.Element {
           aria-live="polite"
         >
           <div className={classes.logoInner}>
-            <Image
-              src={compact ? '/logo-compact-dark-bg.svg' : '/logo-dark-bg.svg'}
-              alt="Sonámbulo"
-              width={576}
-              height={216}
-              sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
-              className={`${classes.logoImage} ${compact ? classes.logoCompact : ''}`}
-              priority
-            />
+            {compact ? (
+              <Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (typeof window !== 'undefined') {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }
+                }}
+                aria-label="Ir al inicio"
+                className="inline-block relative z-50"
+                style={{ pointerEvents: 'auto' }}
+              >
+                <Image
+                  src="/logo-compact-dark-bg.svg"
+                  alt="Sonámbulo"
+                  width={576}
+                  height={216}
+                  sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
+                  className={`${classes.logoImage} ${classes.logoCompact}`}
+                  priority
+                />
+              </Link>
+            ) : (
+              <Image
+                src="/logo-dark-bg.svg"
+                alt="Sonámbulo"
+                width={576}
+                height={216}
+                sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
+                className={classes.logoImage}
+                priority
+              />
+            )}
           </div>
         </div>
 

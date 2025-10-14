@@ -233,6 +233,9 @@
   top: 18px;
   transform: scale(0.42);
   transform-origin: left top;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
   z-index: 1600; /* mayor que el overlay para asegurar clics */
   pointer-events: auto; /* permitir interacción */
   align-items: flex-start;

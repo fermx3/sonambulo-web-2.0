@@ -24,7 +24,7 @@ const STEPS = [
 const EXTRA_HOLD = 0.2;
 // Additional fixed viewport height (vh) to add to the section to allow extra hold
 // Increase this if you need the final step to have more physical scroll space.
-const EXTRA_VH = 200; // 20vh extra by default
+const EXTRA_VH = 180; // 20vh extra by default
 
 // compute an inclusive window for each step inside [0,1] scroll progress
 function windowFor(index: number, total: number) {
@@ -97,7 +97,7 @@ export default function About() {
         className="absolute bottom-20 mx-auto px-6 text-center pointer-events-none flex flex-col items-center"
       >
         {/* Eyebrow: fixed-width block so long lines wrap into two balanced lines */}
-        <p className="mx-auto mb-3 w-[170px] md:w-[220px] lg:w-[210px] px-3 py-2 bg-[var(--color-ink)] text-[var(--color-white)] leading-snug text-start text-wrap text-[14px] sm:text-[14px] md:text-[21px] lg:text-[32px]">
+        <p className="mx-auto mb-3 px-3 py-2 text-[var(--color-ink)] leading-snug text-start text-wrap text-[14px] sm:text-[14px] md:text-[21px] lg:text-[32px]">
           {step.eyebrow}
         </p>
 
@@ -123,7 +123,7 @@ export default function About() {
       {/* Sticky container that occupies the viewport while scrolling through the section */}
       <div className="sticky top-0 h-screen">
         {/* Centered background image (keeps visual fixed in the sticky block) */}
-          <div className="absolute inset-x-0 top-0 -z-10 flex justify-center h-[76dvh] w-full overflow-hidden">
+          <div className="absolute inset-x-0 top-0 -z-10 flex justify-center h-[60dvh] w-full overflow-hidden">
           <Image
             src="/sections/about/medio-asterisco-negro.png"
             alt="decorative"

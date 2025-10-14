@@ -25,10 +25,10 @@ export default function Process() {
 
   return (
     <div className="relative min-h-[110dvh] w-full overflow-hidden bg-[var(--color-blue)]">
-      <div
-        className="absolute w-dvw left-0 right-0 -top-[38dvh] h-full bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+      {<div
+        className="absolute w-vw left-0 right-0 top-0 h-[28vh] bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-cover overflow-hidden"
         aria-hidden
-      />
+      />}
       <div className="relative min-h-[110dvh] flex flex-col justify-center items-center">
         <div className="container mx-auto px-6 lg:px-12 pt-20 pb-34 lg:pb-20">
           {/* Top title */}

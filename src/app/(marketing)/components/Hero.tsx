@@ -60,9 +60,9 @@ export default function Hero(): JSX.Element {
             <Image
               src={compact ? '/logo-compact-dark-bg.svg' : '/logo-dark-bg.svg'}
               alt="Sonámbulo"
-              width={640}
-              height={240}
-              sizes="(min-width: 1200px) 640px, (min-width: 768px) 520px, 360px"
+              width={576}
+              height={216}
+              sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
               className={`${classes.logoImage} ${compact ? classes.logoCompact : ''}`}
               priority
             />
@@ -89,9 +89,9 @@ export default function Hero(): JSX.Element {
             <Image
               src="/sections/hero/bienvenidos.png"
               alt="Bienvenidos a Sonámbulo"
-              width={720}
-              height={224}
-              sizes="(min-width: 1200px) 720px, (min-width: 768px) 520px, 360px"
+              width={648 * 0.8}
+              height={202 * 0.8}
+              sizes="(min-width: 1200px) 648px, (min-width: 768px) 468px, 324px"
               className={classes.welcomeImage}
               priority
             />

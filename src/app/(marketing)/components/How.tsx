@@ -5,19 +5,19 @@ import Image from "next/image";
 export default function How() {
   return (
     <div
-      className="relative bg-[var(--color-ink)] min-h-[180vh] flex items-center justify-center flex-col overflow-hidden"
+      className="relative bg-transparent min-h-[180vh] -mt-20 flex items-center justify-center flex-col overflow-hidden"
       style={{
       backgroundImage:
-        "linear-gradient(to bottom, var(--color-lime) 0, var(--color-lime) var(--how-lime-band, 22dvh), var(--color-ink) var(--how-lime-band, 18dvh), var(--color-ink) 100%)",
+        "linear-gradient(to bottom, var(--color-lime) 0, var(--color-lime) var(--how-lime-band, 30dvh), var(--color-ink) var(--how-lime-band, 18dvh), var(--color-ink) 100%)",
       }}
     >
       {/* Top decorative strip (torn paper) */}
         <div
-          className="absolute w-dvw left-0 right-0 -top-[75dvh] h-full bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+          className="absolute w-dvw left-0 right-0 top-0 h-[50vh] bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
           aria-hidden
         />
         {/* Frase "Ok, pero todos dicen eso" arriba a la izquierda */}
-        <div className="relative self-start z-50 pb-50 -mb-45 w-64 md:w-80 lg:w-96 aspect-4/2 pointer-events-none">
+        <div className="relative self-start z-50 mt-50 pb-50 -mb-45 w-64 md:w-80 lg:w-96 aspect-4/2 pointer-events-none">
           <Image
             src="/sections/how/frase.png"
             alt="Ok, pero todos dicen eso... Tu probablemente."

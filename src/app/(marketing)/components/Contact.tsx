@@ -3,18 +3,51 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section className="min-h-screen w-full relative overflow-hidden bg-[var(--color-blue)]">
+    <div className="min-h-screen w-full relative bg-[var(--color-lime)] overflow-y-visible">
       {/* top neon strip */}
       <div className="absolute inset-x-0 top-0 h-24 bg-[var(--color-lime)] pointer-events-none" />
+      {/* bottom-right megaphone decoration */}
+      <div className="absolute right-6 -top-10 md:-top-18 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible">
+        <Image
+          src="/sections/contact/megafono.png"
+          alt="megafono"
+          fill
+          className="object-contain"
+          priority
+          draggable={false}
+        />
+      </div>
+      <div className="min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover">
+        {/* "tienes un problema?" image */}
+        <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-32">
+          <Image
+            src="/sections/contact/tienes-un-problema.png"
+            alt="tienes un problema?"
+            fill
+            className="object-contain absolute"
+            priority={true}
+          />
+        </div>
+        <div className="relative z-10 mx-auto py-24 flex flex-col md:flex-row items-end-safe h-[110vh] gap-12">
+          {/* left: big CONTACT T* + phone image */}
+          <div className="w-full flex items-center justify-center gap-6">
+            <div className="absolute bottom-0 left-0 flex-shrink-0 w-56 md:w-80 lg:w-96">
+              <div className="relative -left-20 -bottom-10 aspect-3/4 lg:h-[80vh] md:h-[60vh] h-[40vh]">
+                <Image
+                  src="/sections/contact/telefono.png"
+                  alt="phone"
+                  fill
+                  className="object-contain"
+                  priority
+                  draggable={false}
+                />
+              </div>
+            </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-20 py-24 flex flex-col md:flex-row items-start gap-12">
-        {/* left: big CONTACT T* + phone image */}
-        <div className="w-full md:w-1/2 flex items-start gap-6">
-          <div className="relative flex-shrink-0 w-56 md:w-80 lg:w-96">
-            <div className="absolute -left-6 -top-6 w-full h-full transform rotate-[-6deg]">
+            <div className="relative lg:h-[60vh] ratio-1/1 md:h-[60vh] h-[40vh] w-48 md:w-60 lg:w-[60vh]">
               <Image
-                src="/sections/contact/telefono.png"
-                alt="phone"
+                src="/sections/contact/contacto-text.png"
+                alt="Contacto"
                 fill
                 className="object-contain"
                 priority
@@ -23,58 +56,70 @@ export default function Contact() {
             </div>
           </div>
 
-          <h1 className="text-[clamp(48px,6vw,140px)] leading-none font-extrabold text-white uppercase tracking-tight">
-            <span className="block">CON</span>
-            <span className="block">TAC</span>
-            <span className="block">T
-              <span className="inline-block ml-2 -mt-2 align-baseline">
-                <Image
-                  src="/asterisco-blanco.png"
-                  alt="asterisco"
-                  width={54}
-                  height={54}
-                  className=""
-                  priority
-                  draggable={false}
-                />
-              </span>
-            </span>
-          </h1>
-        </div>
+          {/* right: message, email, socials, location */}
+          <div className="w-full flex flex-col items-end justify-end gap-6 md:gap-12 px-6 md:px-0">
+            <div className="w-full md:w-full flex flex-col items-center justify-center text-white">
+              <div className="py-8 max-w-md w-full text-center">
+                <a
+                  href="mailto:hola@estudiosonambulo.com"
+                  className="inline-block text-[var(--color-white)] font-bold px-5 py-3 rounded-md mb-6 hover:brightness-110 text-lg md:text-xl lg:text-2xl text-center"
+                >
+                  HOLA@ESTUDIOSONAMBULO.COM
+                </a>
 
-        {/* right: message, email, socials, location */}
-        <div className="w-full md:w-1/2 flex flex-col items-start justify-center text-white">
-          <div className="bg-white/10 backdrop-blur-md rounded-lg px-6 py-8 max-w-md w-full">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">¿TIENES UN PROBLEMA?</h2>
-            <p className="text-sm md:text-base text-white/90 mb-6">
-              Escríbenos y platicamos cómo podemos ayudar.
-            </p>
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <a
+                    href="#"
+                    aria-label="facebook"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                  >
+                    <Image
+                      src="/icons/facebook.png"
+                      alt="fb"
+                      width={35}
+                      height={35}
+                      priority
+                      draggable={false}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="instagram"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                  >
+                    <Image
+                      src="/icons/instagram.png"
+                      alt="ig"
+                      width={35}
+                      height={35}
+                      priority
+                      draggable={false}
+                    />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="linkedin"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                  >
+                    <Image
+                      src="/icons/linkedin.png"
+                      alt="li"
+                      width={35}
+                      height={35}
+                      priority
+                      draggable={false}
+                    />
+                  </a>
+                </div>
 
-            <a href="mailto:hola@estudiosonambulo.com" className="inline-block text-white font-bold bg-white/6 px-5 py-3 rounded-md mb-6 hover:brightness-110">
-              HOLA@ESTUDIOSONAMBULO.COM
-            </a>
-
-            <div className="flex items-center gap-4 mb-6">
-              <a href="#" aria-label="facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
-                <Image src="/icons/facebook.svg" alt="fb" width={20} height={20} priority draggable={false} />
-              </a>
-              <a href="#" aria-label="instagram" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
-                <Image src="/icons/instagram.svg" alt="ig" width={20} height={20} priority draggable={false} />
-              </a>
-              <a href="#" aria-label="linkedin" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
-                <Image src="/icons/linkedin.svg" alt="li" width={20} height={20} priority draggable={false} />
-              </a>
+                <p className="text-center text-sm md:text-base lg:text-lg">
+                  ( ROMA NORTE, CUAUHTÉMOC, CDMX )
+                </p>
+              </div>
             </div>
-
-            <p className="text-sm text-white/80">( ROMA NORTE, CUAUHTÉMOC, CDMX )</p>
           </div>
         </div>
       </div>
-
-      {/* bottom-right megaphone decoration */}
-      <div className="absolute right-6 bottom-6 w-36 h-36 md:w-48 md:h-48 pointer-events-none">
-        <Image src="/sections/contact/megaphone.png" alt="megaphone" fill className="object-contain" priority draggable={false} />
-      </div>
-    </section>
+    </div>
   );
 }

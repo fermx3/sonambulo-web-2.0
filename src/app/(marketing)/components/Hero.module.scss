@@ -31,7 +31,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transform: rotate(-20deg);
+  /* allow per-shape translate + rotate + scale (scale controlled by --shape-scale) */
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(-20deg) scale(var(--shape-scale, 1));
   filter: saturate(130%);
   z-index: 3;
   pointer-events: none;
@@ -47,7 +48,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transform: rotate(0deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(0deg) scale(var(--shape-scale, 1));
   z-index: 1;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -63,7 +64,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: rotate(2deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(2deg) scale(var(--shape-scale, 1));
   z-index: 1;
   opacity: 0.98;
   pointer-events: none;
@@ -80,7 +81,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: rotate(2deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(2deg) scale(var(--shape-scale, 1));
   z-index: 1;
   opacity: 0.98;
   pointer-events: none;
@@ -97,28 +98,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: rotate(2deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(2deg) scale(var(--shape-scale, 1));
   z-index: 9;
   opacity: 0.98;
   pointer-events: none;
   filter: saturate(120%) contrast(105%);
 }
-
-/* placeholder for a thin line/graphic used in markup */
-/* .shapeTopLines {
-  position: absolute;
-  right: 4%;
-  top: 10%;
-  width: 18vmax;
-  height: 6vmax;
-  background-image: url('/sections/hero/lines.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.9;
-} */
 
 /* right circular ring */
 .shapeRightRing {
@@ -131,7 +116,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: translateY(0) rotate(0deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(0deg) scale(var(--shape-scale, 1));
   z-index: 2;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -149,7 +134,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: rotate(-8deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(-8deg) scale(var(--shape-scale, 1));
   z-index: 2;
   opacity: 0.98;
   pointer-events: none;
@@ -166,22 +151,46 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: rotate(-8deg);
+  transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(-8deg) scale(var(--shape-scale, 1));
   z-index: 3;
   opacity: 0.98;
   pointer-events: none;
   filter: saturate(120%) contrast(105%);
 }
 
-/* subtle floating animation applied to some shapes */
-@keyframes float {
-  0% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-8px) rotate(1deg); }
-  100% { transform: translateY(0) rotate(-1deg); }
+/* Decorative shapes used by Hero.tsx (add smooth transitions + will-change) */
+.shapeBlue,
+.shapeWhiteArc,
+.shapeTopBlob,
+.shapeTopBlob2,
+.shapeTopBlobContour,
+.shapeRightRing,
+.shapeTopCenterLeft,
+.shapeTopCenterLeftContour {
+  /* keep existing positioning/background/etc (already defined above) */
+  /* add smooth transition so changes to --shape-scale / --shape-translate-* animate nicely */
+  transition: transform 420ms cubic-bezier(.22,.9,.26,1), opacity 320ms ease, filter 320ms ease;
+  will-change: transform, opacity;
+  /* ensure GPU compositing */
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
-.shapeBlue, .shapeTopBlob, .shapeRightRing, .shapeTopCenterLeft {
-  animation: float 8s ease-in-out infinite;
+/* subtle floating animation applied to some shapes: slightly slower + smoother */
+@keyframes float {
+  /* include translate offsets so float respects the small-offset position */
+  0%   { transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(-1deg) scale(var(--shape-scale, 1)); }
+  50%  { transform: translateX(var(--shape-translate-x, 0)) translateY(calc(var(--shape-translate-y, 0) - 8px)) rotate(1deg) scale(var(--shape-scale, 1)); }
+  100% { transform: translateX(var(--shape-translate-x, 0)) translateY(var(--shape-translate-y, 0)) rotate(-1deg) scale(var(--shape-scale, 1)); }
+}
+
+/* apply float with a slightly longer duration for smoother motion */
+.shapeBlue,
+.shapeTopBlob,
+.shapeRightRing,
+.shapeTopCenterLeft {
+  animation: float 10s cubic-bezier(.22,.9,.26,1) infinite;
 }
 
 /* Logo overlay used to show the big logo */
@@ -290,4 +299,55 @@
     letter-spacing: 8px;
     margin-top: 10px;
   }
+}
+
+/* Small shape variants: scale + offset away from center */
+.shapeBlueSmall {
+  --shape-scale: 0.7;
+  /* move further left & slightly down (away from center) */
+  --shape-translate-x: -12vmax;
+  --shape-translate-y: 8vmax;
+}
+
+.shapeWhiteArcSmall {
+  --shape-scale: 0.7;
+  --shape-translate-x: -12vmax;
+  --shape-translate-y: 6vmax;
+}
+
+.shapeTopBlobSmall {
+  --shape-scale: 0.9;
+  /* blob on the right should nudge further right & up */
+  --shape-translate-x: 5vmax;
+  --shape-translate-y: -5vmax;
+}
+
+.shapeTopBlob2Small {
+  --shape-scale: 0.9;
+  --shape-translate-x: 5vmax;
+  --shape-translate-y: -6vmax;
+}
+
+.shapeTopBlobContourSmall {
+  --shape-scale: 0.7;
+  --shape-translate-x: 4vmax;
+  --shape-translate-y: -5vmax;
+}
+
+.shapeRightRingSmall {
+  --shape-scale: 0.7;
+  --shape-translate-x: 6vmax;
+  --shape-translate-y: 1vmax;
+}
+
+.shapeTopCenterLeftSmall {
+  --shape-scale: 0.7;
+  --shape-translate-x: -5vmax;
+  --shape-translate-y: -1vmax;
+}
+
+.shapeTopCenterLeftContourSmall {
+  --shape-scale: 0.7;
+  --shape-translate-x: -7vmax;
+  --shape-translate-y: -4vmax;
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import Image from "next/image";
 
 export const revalidate = 60;
 
@@ -9,9 +9,16 @@ export default function Page({ params }: Props) {
   const { slug } = params;
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[var(--color-ink)] text-white">
+    <main className="min-h-screen flex items-center justify-center bg-[url('/sections/capabilities/fondo-capabilities.png')] text-white">
       <div className="max-w-3xl p-8 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-[var(--color-blue)] mb-4">
+        <Image
+          src="/logo-compact-dark-bg.svg"
+          alt="Sonámbulo Estudio Creativo"
+          width={150}
+          height={150}
+          className="mx-auto mb-6"
+        />
+        <h1 className="text-4xl md:text-6xl font-black italic font-(family-name:--font-montserrat) uppercase text-[var(--color-white)] mb-4">
           Sin información disponible
         </h1>
 

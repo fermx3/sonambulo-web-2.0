@@ -105,15 +105,15 @@ export default function Hero(): JSX.Element {
 
         <div className={`${classes.canvas} ${compact ? classes.canvasInteractive : ''}`}>
           {/* Decorative shapes */}
-          <div className={classes.shapeBlue} aria-hidden="true" />
-          <div className={classes.shapeWhiteArc} aria-hidden="true" />
-          <div className={classes.shapeTopBlobContour} aria-hidden="true" />
-          <div className={classes.shapeTopBlob} aria-hidden="true" />
-          <div className={classes.shapeTopBlob2} aria-hidden="true" />
-          <div className={classes.shapeTopLines} aria-hidden="true" />
-          <div className={classes.shapeRightRing} aria-hidden="true" />
-          <div className={classes.shapeTopCenterLeftContour} aria-hidden="true" />
-          <div className={classes.shapeTopCenterLeft} aria-hidden="true" />
+          <div className={`${classes.shapeBlue} ${compact ? classes.shapeBlueSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeWhiteArc} ${compact ? classes.shapeWhiteArcSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopBlobContour} ${compact ? classes.shapeTopBlobContourSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopBlob} ${compact ? classes.shapeTopBlobSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopBlob2} ${compact ? classes.shapeTopBlob2Small : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopLines} ${compact ? classes.shapeTopLinesSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeRightRing} ${compact ? classes.shapeRightRingSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopCenterLeftContour} ${compact ? classes.shapeTopCenterLeftContourSmall : ""}`} aria-hidden="true" />
+          <div className={`${classes.shapeTopCenterLeft} ${compact ? classes.shapeTopCenterLeftSmall : ""}`} aria-hidden="true" />
 
           {/* Imagen "Bienvenidos" centrada — aparece cuando compact */}
           <section

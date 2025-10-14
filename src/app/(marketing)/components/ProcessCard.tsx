@@ -56,15 +56,15 @@ export default function ProcessCard({
       <div className="relative w-full z-10 p-6 flex flex-col justify-center items-center text-center">
         {!active ? (
           <>
-            <span className="text-[var(--color-white)] font-extrabold uppercase text-2xl md:text-2xl tracking-tight">
+            <span className="text-[var(--color-white)] uppercase text-2xl md:text-2xl tracking-tight font-(family-name:--font-montserrat) italic font-black">
               {topText}
             </span>
-            <span className="text-[var(--color-white)] font-extrabold uppercase text-3xl md:text-4xl -mt-1">
+            <span className="text-[var(--color-white)] uppercase text-3xl md:text-4xl -mt-1 font-(family-name:--font-montserrat) italic font-black">
               {bottomText}
             </span>
           </>
         ) : (
-          <p className="text-[var(--color-white)] text-sm md:text-base leading-relaxed max-w-[18rem]">
+          <p className="text-[var(--color-white)] text-sm md:text-base leading-relaxed max-w-[18rem] font-medium">
             {paragraph}
           </p>
         )}

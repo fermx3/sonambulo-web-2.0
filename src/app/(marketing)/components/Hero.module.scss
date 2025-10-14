@@ -191,6 +191,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+  opacity: 1;
   z-index: 1200;
   pointer-events: auto;
   transition: all 200ms cubic-bezier(.22,.9,.26,1);
@@ -223,7 +228,6 @@
   pointer-events: auto; /* permitir interacción */
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 18px;
   background: transparent;
   height: auto;
   transition: transform 200ms cubic-bezier(.22,.9,.26,1);
@@ -263,14 +267,14 @@
   bottom: 4%;
   color: rgba(255,255,255,0.9);
   font-size: clamp(14px, 2.6vw, 38px);
+  font-family: var(--font-darker);
+  font-weight: 400;
+  letter-spacing: 0.1em;
   transition: transform 500ms ease, font-size 500ms ease, opacity 400ms;
   z-index: 6;
 }
 .taglineSmall {
   font-size: 28px;
-  right: 5%;
-  bottom: 5%;
-  opacity: 0.9;
 }
 
 /* allow interaction when compact */

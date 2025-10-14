@@ -71,7 +71,7 @@ export default function CapabilityItem({
       >
         <div className="flex flex-col items-start w-full">
           <div className="w-full flex items-center justify-between">
-            <h3 className="text-[var(--color-white)] font-extrabold uppercase text-lg md:text-2xl lg:text-3xl tracking-wide flex-1">
+            <h3 className="text-[var(--color-white)] font-(family-name:--font-montserrat) italic font-black uppercase text-lg md:text-2xl lg:text-3xl tracking-wide flex-1">
               {titulo}
             </h3>
 
@@ -95,7 +95,7 @@ export default function CapabilityItem({
 
           {/* expanded content */}
           <div
-            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] text-sm md:text-base leading-relaxed max-w-xl overflow-hidden ${
+            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] font-medium max-w-xl overflow-hidden ${
               active
                 ? "opacity-100 scale-y-100 max-h-[800px] mt-4 md:mt-0"
                 : "opacity-0 scale-y-0 max-h-0 pointer-events-none"

@@ -9,7 +9,7 @@ const STEPS = [
     id: "step-1",
     eyebrow: "Somos un",
     title: "SÚPER GRUPO",
-    subtitle: "de creativos, publicistas, marketeros y nerds de las ideas.",
+    subtitle: "de creativos, publicistas, marketeros y nerds de las ideas, unidos bajo una misma visión:",
   },
   {
     id: "step-2",
@@ -94,19 +94,19 @@ export default function About() {
     return (
       <motion.div
         style={{ opacity, y, scale }}
-        className="absolute bottom-20 mx-auto px-6 text-center pointer-events-none flex flex-col items-center"
+        className="absolute bottom-18 mx-auto px-6 text-center pointer-events-none flex flex-col items-center"
       >
         {/* Eyebrow: fixed-width block so long lines wrap into two balanced lines */}
-        <p className="mx-auto mb-3 px-3 py-2 text-[var(--color-ink)] leading-snug text-start text-wrap text-[14px] sm:text-[14px] md:text-[21px] lg:text-[32px]">
+        <p className="mx-auto px-3 py-2 text-[var(--color-ink)] leading-snug text-start text-wrap text-[1rem] sm:text-[1rem] md:text-[2rem] lg:text-[2.5rem]">
           {step.eyebrow}
         </p>
 
-        <h3 className="text-[36px] md:text-[64px] font-extrabold leading-tight tracking-tight text-[var(--color-ink)]">
+        <h3 className="text-[36px] md:text-[64px] font-(family-name:--font-alfarn) leading-tight tracking-tight text-[var(--color-ink)]">
           {step.title}
         </h3>
 
         {step.subtitle && (
-          <p className="mt-3 text-[var(--color-ink)] text-base md:text-lg">
+          <p className="text-[var(--color-ink)] md:text-[1.5rem] lg:text-[2rem] max-w-2xl">
             {step.subtitle}
           </p>
         )}

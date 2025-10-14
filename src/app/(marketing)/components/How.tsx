@@ -31,13 +31,13 @@ export default function How() {
           {/* Left column: text */}
           <div className="lg:col-span-7">
             <div className="mt-12">
-              <p className="text-lg text-white/80 mb-3">
+              <p className="text-[2rem] text-[var(--color-white)] font-medium ">
                 Tenemos un gran diferenciador...
               </p>
 
               <h2 className="font-extrabold text-5xl md:text-6xl lg:text-7xl">
-                <span className="block mt-2 text-[var(--color-lime)] lg:translate-x-12">BLINDAMOS</span>
-                <span className="block text-2xl md:text-3xl font-medium mt-2 text-white/80 lg:translate-x-24">
+                <span className="block mt-2 text-[var(--color-lime)] font-(family-name:--font-montserrat) font-black italic lg:translate-x-12">BLINDAMOS</span>
+                <span className="block text-2xl md:text-3xl font-medium mt-2 text-[var(--color-white)] lg:translate-x-24">
                   a las marcas desde el{" "}
                   <span className="text-[var(--color-teal)]">trade</span> hasta
                   el{" "}

@@ -34,6 +34,20 @@ body {
   --color-teal: #33ffc2; /* teal */
   --color-blue: #0606ff; /* blue */
   --color-white: #f2efeb; /* white */
+
+  /* font variables (typekit + sensible fallbacks) */
+  --font-alfarn: "alfarn", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Darker Grotesque variable */
+  --font-darker: "Darker Grotesque", var(--font-ui);
+
+  /* Montserrat variable */
+  --font-montserrat: "Montserrat", var(--font-ui);
+}
+
+body {
+  font-family: var(--font-darker);
 }
 
 /* Global resets */

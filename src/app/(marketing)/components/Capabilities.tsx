@@ -9,7 +9,7 @@ export default function Capabilities() {
 
   return (
     <div className="relative md:min-h-[120dvh] -mt-15 md:-mt-54 md:pt-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover">
-      <h2 className="text-[var(--color-white)] font-extrabold text-4xl md:text-5xl mb-24">CAPABILITIES</h2>
+      <h2 className="text-[var(--color-white)] text-4xl md:text-5xl mb-24 font-(family-name:--font-alfarn)">CAPABILITIES</h2>
 
       <div className="w-full space-y-8">
       {items.map((it) => (

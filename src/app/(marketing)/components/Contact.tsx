@@ -62,7 +62,7 @@ export default function Contact() {
               <div className="py-8 max-w-md w-full text-center">
                 <a
                   href="mailto:hola@estudiosonambulo.com"
-                  className="inline-block text-[var(--color-white)] font-bold px-5 py-3 rounded-md mb-6 hover:brightness-110 text-lg md:text-xl lg:text-2xl text-center"
+                  className="inline-block text-[var(--color-white)] px-5 py-3 rounded-md mb-6 hover:brightness-110 text-center text-sm md:text-base lg:text-3xl font-(family-name:--font-darker) font-semibold"
                 >
                   HOLA@ESTUDIOSONAMBULO.COM
                 </a>
@@ -112,7 +112,7 @@ export default function Contact() {
                   </a>
                 </div>
 
-                <p className="text-center text-sm md:text-base lg:text-lg">
+                <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold">
                   ( ROMA NORTE, CUAUHTÉMOC, CDMX )
                 </p>
               </div>

@@ -19,15 +19,15 @@ export default function Clients() {
     <div className="min-h-[90vh] w-full relative overflow-hidden bg-[var(--color-lime)]">
 
       <div className="relative inset-x-0 top-0 h-36 flex items-center justify-center md:pt-40">
-        <h2 className="uppercase font-extrabold text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl tracking-wide leading-none">
+        <h2 className="uppercase font-(family-name:--font-alfarn) text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl leading-none">
           <span className="block whitespace-nowrap">NUESTR<span>
             <Image
               src="/asterisco-azul.png"
               alt="asterisco sonambulo"
               width={48}
               height={48}
-              style={{ width: "0.8em", height: "0.8em" }}
-              className="inline-block align-middle -mt-2 md:-mt-3 lg:-mt-4 mx-1"
+              style={{ width: "0.7em", height: "0.7em" }}
+              className="inline-block align-baseline -mt-2 md:-mt-3 lg:-mt-4 mx-1"
               draggable={false}
               priority={true}
             />

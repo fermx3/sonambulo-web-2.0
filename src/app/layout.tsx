@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { ReactNode } from "react";
 import SmoothScroll from "./(marketing)/components/SmoothScroll";
 import { Montserrat, Darker_Grotesque } from "next/font/google";
+import Nav from "./(marketing)/components/Nav";
 
 export const metadata: Metadata = {
   title: "Sonámbulo Estudio Creativo",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="stylesheet" href="https://use.typekit.net/bms8ymp.css" />
       </head>
       <body>
+        <Nav />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

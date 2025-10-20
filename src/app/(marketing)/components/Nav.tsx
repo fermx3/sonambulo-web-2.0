@@ -103,14 +103,14 @@ export default function Nav() {
             </button>
           </div>
 
-          <ul className="space-y-2 flex flex-col text-right" role="none">
+          <ul className="flex flex-col text-right" role="none">
             {MENU_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   role="menuitem"
                   onClick={closeMenu}
-                  className="block px-3 py-1 text-white/90 font-black hover:text-[var(--color-lime)] hover:bg-[rgba(255,255,255,0.02)] rounded"
+                  className="block px-3 py-1 text-white/90 font-black text-lg hover:text-[var(--color-lime)] hover:bg-[rgba(255,255,255,0.02)] rounded"
                 >
                   {item.label}
                 </Link>

@@ -6,7 +6,7 @@ export default function Contact() {
     <div className="min-h-screen w-full relative bg-[var(--color-lime)] overflow-y-visible">
       {/* top neon strip */}
       <div className="absolute inset-x-0 top-0 h-24 bg-[var(--color-lime)] pointer-events-none" />
-      {/* bottom-right megaphone decoration */}
+      {/* top-right megaphone decoration */}
       <div className="absolute right-6 -top-10 md:-top-18 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible">
         <Image
           src="/sections/contact/megafono.png"
@@ -17,7 +17,29 @@ export default function Contact() {
           draggable={false}
         />
       </div>
-      <div className="min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover">
+      {/* top-left form decoration */}
+      <div className="absolute -left-30 -top-10 md:-top-78 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-0">
+        <Image
+          src="/sections/clients/forma-azul.png"
+          alt="megafono"
+          fill
+          className="object-contain"
+          priority
+          draggable={false}
+        />
+      </div>
+      {/* top-left form decoration */}
+      <div className="absolute -left-40 -top-10 md:-top-66 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-10 rotate-12">
+        <Image
+          src="/sections/clients/contorno.png"
+          alt="megafono"
+          fill
+          className="object-contain"
+          priority
+          draggable={false}
+        />
+      </div>
+      <div className="min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover z-30">
         {/* "tienes un problema?" image */}
         <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-12">
           <Image

@@ -71,7 +71,7 @@ export default function CapabilityItem({
       >
         <div className="flex flex-col items-start w-full">
           <div className="w-full flex items-center justify-between">
-            <h3 className="text-[var(--color-white)] font-(family-name:--font-montserrat) italic font-black uppercase text-lg md:text-2xl lg:text-3xl tracking-wide flex-1">
+            <h3 className="text-[var(--color-white)] font-(family-name:--font-montserrat) italic font-black uppercase text-lg md:text-3xl lg:text-4xl tracking-wide flex-1">
               {titulo}
             </h3>
 
@@ -95,7 +95,7 @@ export default function CapabilityItem({
 
           {/* expanded content */}
           <div
-            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] font-medium max-w-xl text-xl overflow-hidden ${
+            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] font-bold text-xl md:text-2xl overflow-hidden ${
               active
                 ? "opacity-100 scale-y-100 max-h-[800px] mt-4 md:mt-0"
                 : "opacity-0 scale-y-0 max-h-0 pointer-events-none"
@@ -103,12 +103,13 @@ export default function CapabilityItem({
             style={{ willChange: "opacity, transform" }}
             aria-hidden={!active}
           >
-            {description && <p className="mb-3">{description}</p>}
+            {description && <p className="my-8 font-bold">{description}</p>}
             {bullets.length > 0 && (
-              <ul className="list-disc pl-5 space-y-1">
+              <ul className="space-y-1">
                 {bullets.map((b, i) => (
-                  <li key={i} className="text-[var(--color-white)]">
-                    {b}
+                  <li key={i} className="text-[var(--color-white)] font-bold flex items-start">
+                    <span>*</span>
+                    <span>{b}</span>
                   </li>
                 ))}
               </ul>

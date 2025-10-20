@@ -37,7 +37,7 @@ export default function Clients() {
       </div>
 
       {/* contenido central: dejar espacio para el título */}
-      <div className="relative md:pt-36 pb-24 flex flex-col items-center">
+      <div className="relative md:pt-36 pb-24 flex flex-col items-center z-20">
         <div className="w-full">
           {/* banda horizontal con carrusel tipo marquee */}
             <div

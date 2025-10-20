@@ -48,6 +48,7 @@ body {
 
 body {
   font-family: var(--font-darker);
+  background-color: var(--color-ink);
 }
 
 /* Global resets */

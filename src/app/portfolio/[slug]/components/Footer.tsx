@@ -17,7 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[var(--color-ink)] text-black z-50 -mt-10">
+    <footer className="relative bg-[var(--color-ink)] text-black z-50 -mt-10 md:h-auto h-[120vh]">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 -top-12">
         <Image
@@ -25,16 +25,17 @@ export default function Footer() {
           alt="Footer background"
           fill
           className="object-cover object-bottom"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           priority
+          quality={90}
         />
       </div>
 
       {/* Contenido del footer */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 pt-20 sm:pt-24 md:pt-28 lg:pt-42">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 pt-20 sm:pt-24 md:pt-28 lg:pt-42 md:justify-start justify-end flex flex-col h-full">
+        <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 mb-8">
           {/* Logo */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 md:mb-0 mb-6">
             <Image
               src="/logo-light-bg.svg"
               alt="Sonámbulo Estudio Creativo"
@@ -110,7 +111,7 @@ export default function Footer() {
           </div>
 
           {/* SÍGUENOS y Newsletter */}
-          <div className="md:col-span-1 font-black">
+          <div className="md:col-span-1 font-black md:mt-0 mt-6">
             <div className="mb-3 flex gap-3">
               <h3 className="">SÍGUENOS</h3>
               <div className="flex space-x-2">

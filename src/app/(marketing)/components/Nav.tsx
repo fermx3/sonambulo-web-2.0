@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const MENU_ITEMS: { label: string; href: string }[] = [
   { label: "ÍNDICE", href: "/" },
@@ -13,10 +14,23 @@ const MENU_ITEMS: { label: string; href: string }[] = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const openRef = useRef(open);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // keep ref in sync via click handlers (no effect dependency array changes)
+  // Detectar si estamos en mobile
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint es 768px
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  // keep ref in sync via click handlers
   const openMenu = () => {
     openRef.current = true;
     setOpen(true);
@@ -27,7 +41,6 @@ export default function Nav() {
   };
 
   useEffect(() => {
-    // attach listeners once — handler checks openRef.current
     function onPointerDown(e: PointerEvent) {
       if (!containerRef.current) return;
       if (!openRef.current) return;
@@ -49,75 +62,116 @@ export default function Nav() {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKey);
     };
-  }, []); // stable, length won't change between renders
+  }, []);
 
   return (
-    <div ref={containerRef} className="fixed flex flex-col items-end top-12 right-14 z-[99999] pointer-events-auto">
-      {/* when closed show only the inline MENU button */}
-      {!open && (
-        <button
+    <div ref={containerRef} className="fixed flex flex-col items-end top-5 right-5 md:top-12 md:right-14 z-[99999] pointer-events-auto">
+      <div className="relative">
+        {/* Botón MENÚ siempre visible */}
+        <motion.button
           type="button"
           aria-haspopup="menu"
           aria-expanded={open}
-          onClick={openMenu}
+          onClick={open ? closeMenu : openMenu}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              openMenu();
+              if (open) {
+                closeMenu();
+              } else {
+                openMenu();
+              }
             }
           }}
-          className="uppercase font-bold tracking-wide text-[var(--color-blue)] text-sm md:text-base lg:text-lg focus:outline-none rounded bg-transparent"
-          aria-label="Abrir menú"
+          className="relative z-10 uppercase font-black tracking-wide text-base md:text-lg lg:text-xl focus:outline-none rounded bg-transparent px-3 py-2"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          animate={{
+            color: open ? "var(--color-lime)" : "var(--color-blue)"
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           ( MENÚ )
-        </button>
-      )}
+        </motion.button>
 
-      {/* Panel: when open the MENU text is rendered inside the box and turns lime */}
-      <div
-        role="menu"
-        aria-hidden={!open}
-        className={`origin-top-right -mt-6 -mr-5 transform transition-all duration-200 ease-out pointer-events-auto ${
-          open ? "opacity-100 scale-100 translate-y-2" : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
-        }`}
-        style={{ willChange: "transform, opacity" }}
-      >
-        <div className="w-56 bg-[rgba(3,3,3,0.92)] border border-[var(--color-lime)] rounded-md shadow-lg py-3 px-3 text-left">
-          {/* header: MENU inside the box and highlighted when open */}
-          <div className="flex justify-end mb-2">
-            <button
-              type="button"
-              aria-haspopup="menu"
-              aria-expanded={open}
-              onClick={closeMenu}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  closeMenu();
-                }
+        {/* Panel que se materializa alrededor del botón */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              role="menu"
+              aria-hidden={!open}
+              className="absolute top-0 right-0 pointer-events-auto"
+              initial={{
+                scale: 0.9,
+                opacity: 0,
+                y: -10,
+                borderRadius: "6px"
               }}
-              className="uppercase px-3 font-bold tracking-wide text-[var(--color-lime)] text-sm md:text-base lg:text-lg focus:outline-none rounded bg-transparent"
-              aria-label="Cerrar menú"
+              animate={{
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                borderRadius: "6px"
+              }}
+              exit={{
+                scale: 0.95,
+                opacity: 0,
+                y: -5,
+                borderRadius: "6px"
+              }}
+              transition={{
+                duration: 0.2,
+                ease: [0.16, 1, 0.3, 1], // easeOutExpo para un efecto más natural
+              }}
+              style={{ willChange: "transform, opacity" }}
             >
-              ( MENÚ )
-            </button>
-          </div>
-
-          <ul className="flex flex-col text-right" role="none">
-            {MENU_ITEMS.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  role="menuitem"
-                  onClick={closeMenu}
-                  className="block px-3 py-1 text-white/90 font-black text-lg hover:text-[var(--color-lime)] hover:bg-[rgba(255,255,255,0.02)] rounded"
+              {/* Fondo que se expande */}
+              <motion.div
+                className="relative bg-[rgba(3,3,3,0.95)] border border-[var(--color-lime)] rounded-md shadow-2xl backdrop-blur-sm overflow-hidden"
+                initial={{
+                  width: isMobile ? "120px" : "140px",
+                  height: "50px"
+                }}
+                animate={{
+                  width: isMobile ? "90vw" : "280px", // Mobile: 320px, Desktop: 280px
+                  height: isMobile ? "90vh" : "280px" // Mobile: 320px, Desktop: 280px
+                }}
+                transition={{
+                  duration: 0.4,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
+                style={{
+                  padding: isMobile ? "16px" : "12px" // Más padding en móviles
+                }}
+              >
+                {/* Lista de elementos del menú */}
+                <motion.ul
+                  className={`flex flex-col text-right space-y-0 h-full pt-7 justify-evenly ${isMobile ? 'py-4' : 'py-2'}`}
+                  role="none"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  {MENU_ITEMS.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        role="menuitem"
+                        onClick={closeMenu}
+                        className={`block ps-3 text-white/90 font-black hover:text-[var(--color-lime)] hover:bg-[rgba(255,255,255,0.05)] rounded transition-all duration-200 ease-out ${
+                          isMobile
+                            ? 'py-3 text-lg'
+                            : 'py-1 text-xl'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

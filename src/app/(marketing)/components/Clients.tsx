@@ -7,10 +7,10 @@ export default function Clients() {
   const images: {
     link?: string; src: string; alt?: string
 }[] = [
-    { src: "/sections/clients/blends.png", alt: "Blends", link: "/portfolio/blends" },
-    { src: "/sections/clients/cerveceria.png", alt: "Cerveceria el secreto", link: "/portfolio/cerveceria-el-secreto" },
-    { src: "/sections/clients/colectivo.png", alt: "Colectivo Circular", link: "/portfolio/colectivo-circular" },
-    { src: "/sections/clients/companeros-en-ruta.png", alt: "Compañeros en ruta", link: "/portfolio/companeros-en-ruta" },
+    { src: "/clientes/blends/link.png", alt: "Blends", link: "/portfolio/blends" },
+    { src: "/clientes/cerveceria-el-secreto/link.png", alt: "Cerveceria el secreto", link: "/portfolio/cerveceria-el-secreto" },
+    { src: "/clientes/usmef/link.png", alt: "Colectivo Circular", link: "/portfolio/colectivo-circular" },
+    { src: "/clientes/companeros-en-ruta/link.png", alt: "Compañeros en ruta", link: "/portfolio/companeros-en-ruta" },
   ];
 
   // duplicamos para que el marquee se vea continuo

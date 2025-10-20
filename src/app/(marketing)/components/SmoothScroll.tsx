@@ -15,7 +15,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 
     (async () => {
       const { default: Lenis } = (await import('lenis')) as { default: LenisConstructor };
-      lenisInstance = new Lenis({ lerp: 0.1, smoothWheel: true });
+      lenisInstance = new Lenis({ lerp: 0.05, smoothWheel: true });
       function raf(time: number) {
         lenisInstance?.raf(time);
         rafId = requestAnimationFrame(raf);

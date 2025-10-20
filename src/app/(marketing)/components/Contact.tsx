@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { FadeUp } from "@/lib/anim/FadeUp";
 
 export default function Contact() {
   return (
@@ -7,7 +8,7 @@ export default function Contact() {
       {/* top neon strip */}
       <div className="absolute inset-x-0 top-0 h-24 bg-[var(--color-lime)] pointer-events-none" />
       {/* top-right megaphone decoration */}
-      <div className="absolute right-6 -top-10 md:-top-18 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible">
+      <div className="absolute right-6 -top-10 md:-top-18 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-20">
         <Image
           src="/sections/contact/megafono.png"
           alt="megafono"
@@ -18,10 +19,10 @@ export default function Contact() {
         />
       </div>
       {/* top-left form decoration */}
-      <div className="absolute -left-30 -top-10 md:-top-78 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-0">
+      <div className="absolute -left-10 md:-left-30 -top-65 md:-top-78 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-0">
         <Image
           src="/sections/clients/forma-azul.png"
-          alt="megafono"
+          alt="forma azul"
           fill
           className="object-contain"
           priority
@@ -29,10 +30,10 @@ export default function Contact() {
         />
       </div>
       {/* top-left form decoration */}
-      <div className="absolute -left-40 -top-10 md:-top-66 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-10 rotate-12">
+      <div className="absolute -left-10 md:-left-10 -top-60 md:-top-66 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-10 rotate-12">
         <Image
           src="/sections/clients/contorno.png"
-          alt="megafono"
+          alt="contorno"
           fill
           className="object-contain"
           priority
@@ -66,79 +67,83 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="relative lg:h-[60vh] ratio-1/1 md:h-[60vh] h-[40vh] w-48 md:w-60 lg:w-[60vh]">
-              <Image
-                src="/sections/contact/contacto-text.png"
-                alt="Contacto"
-                fill
-                className="object-contain"
-                priority
-                draggable={false}
-              />
-            </div>
+            <FadeUp>
+              <div className="relative lg:h-[60vh] ratio-1/1 md:h-[60vh] h-[40vh] w-48 md:w-60 lg:w-[60vh]">
+                <Image
+                  src="/sections/contact/contacto-text.png"
+                  alt="Contacto"
+                  fill
+                  className="object-contain"
+                  priority
+                  draggable={false}
+                />
+              </div>
+            </FadeUp>
           </div>
 
           {/* right: message, email, socials, location */}
-          <div className="w-full flex flex-col items-end justify-end gap-6 md:gap-12 px-6 md:px-0">
-            <div className="w-full md:w-full flex flex-col items-center justify-center text-white">
-              <div className="py-8 max-w-md w-full text-center">
-                <a
-                  href="mailto:hola@estudiosonambulo.com"
-                  className="inline-block text-[var(--color-white)] px-5 py-3 rounded-md mb-6 hover:brightness-110 text-center text-sm md:text-base lg:text-3xl font-(family-name:--font-darker) font-semibold"
-                >
-                  HOLA@ESTUDIOSONAMBULO.COM
-                </a>
+          <div className="w-full flex flex-col items-end justify-end gap-6 md:gap-12 px-12 md:px-0">
+            <FadeUp>
+              <div className="px-12 w-full md:w-full flex flex-col items-center justify-center text-white">
+                <div className="py-8 max-w-md w-full text-center">
+                  <a
+                    href="mailto:hola@estudiosonambulo.com"
+                    className="inline-block text-[var(--color-white)] px-5 py-3 rounded-md mb-6 hover:brightness-110 text-center text-sm md:text-base lg:text-3xl font-(family-name:--font-darker) font-semibold"
+                  >
+                    HOLA@ESTUDIOSONAMBULO.COM
+                  </a>
 
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <a
-                    href="#"
-                    aria-label="facebook"
-                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
-                  >
-                    <Image
-                      src="/icons/facebook.png"
-                      alt="fb"
-                      width={35}
-                      height={35}
-                      priority
-                      draggable={false}
-                    />
-                  </a>
-                  <a
-                    href="#"
-                    aria-label="instagram"
-                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
-                  >
-                    <Image
-                      src="/icons/instagram.png"
-                      alt="ig"
-                      width={35}
-                      height={35}
-                      priority
-                      draggable={false}
-                    />
-                  </a>
-                  <a
-                    href="#"
-                    aria-label="linkedin"
-                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
-                  >
-                    <Image
-                      src="/icons/linkedin.png"
-                      alt="li"
-                      width={35}
-                      height={35}
-                      priority
-                      draggable={false}
-                    />
-                  </a>
+                  <div className="flex items-center justify-center gap-4 mb-6">
+                    <a
+                      href="#"
+                      aria-label="facebook"
+                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                    >
+                      <Image
+                        src="/icons/facebook.png"
+                        alt="fb"
+                        width={35}
+                        height={35}
+                        priority
+                        draggable={false}
+                      />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="instagram"
+                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                    >
+                      <Image
+                        src="/icons/instagram.png"
+                        alt="ig"
+                        width={35}
+                        height={35}
+                        priority
+                        draggable={false}
+                      />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="linkedin"
+                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
+                    >
+                      <Image
+                        src="/icons/linkedin.png"
+                        alt="li"
+                        width={35}
+                        height={35}
+                        priority
+                        draggable={false}
+                      />
+                    </a>
+                  </div>
+
+                  <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold">
+                    ( ROMA NORTE, CUAUHTÉMOC, CDMX )
+                  </p>
                 </div>
-
-                <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold">
-                  ( ROMA NORTE, CUAUHTÉMOC, CDMX )
-                </p>
               </div>
-            </div>
+            </FadeUp>
           </div>
         </div>
       </div>

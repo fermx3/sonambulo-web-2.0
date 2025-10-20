@@ -1,4 +1,5 @@
 import CapabilityItem from "./CapabilityItem";
+import { FadeUp } from "@/lib/anim/FadeUp";
 
 export default function Capabilities() {
   const items = [
@@ -23,20 +24,21 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="relative md:min-h-[130dvh] -mt-15 md:-mt-54 md:pt-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover">
+    <div className="relative min-h-screen md:min-h-[130dvh] mt-0 md:-mt-54 md:pt-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover">
       <h2 className="text-[var(--color-white)] text-4xl md:text-5xl mb-24 font-(family-name:--font-alfarn)">
         CAPABILITIES
       </h2>
 
       <div className="w-full space-y-8">
         {items.map((it) => (
-          <CapabilityItem
-            key={it.titulo}
-            titulo={it.titulo}
-            colorClass={it.colorClass}
-            description={it.description}
-            bullets={it.bullets}
-          />
+          <FadeUp key={it.titulo}>
+            <CapabilityItem
+              titulo={it.titulo}
+              colorClass={it.colorClass}
+              description={it.description}
+              bullets={it.bullets}
+            />
+          </FadeUp>
         ))}
       </div>
       <div

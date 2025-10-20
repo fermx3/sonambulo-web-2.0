@@ -105,6 +105,7 @@ export default function Hero(): JSX.Element {
 
         <div className={`${classes.canvas} ${compact ? classes.canvasInteractive : ''}`}>
           {/* Decorative shapes */}
+
           <div className={`${classes.shapeBlue} ${compact ? classes.shapeBlueSmall : ""}`} aria-hidden="true" />
           <div className={`${classes.shapeWhiteArc} ${compact ? classes.shapeWhiteArcSmall : ""}`} aria-hidden="true" />
           <div className={`${classes.shapeTopBlobContour} ${compact ? classes.shapeTopBlobContourSmall : ""}`} aria-hidden="true" />
@@ -130,11 +131,10 @@ export default function Hero(): JSX.Element {
               priority
             />
           </section>
-
           {/* Tagline bottom-right — se reduce cuando compact */}
-          <div className={`${classes.tagline} ${compact ? classes.taglineSmall : ''}`}>
-            ( Creativity without rest )
-          </div>
+            <div className={`${classes.tagline} ${compact ? classes.taglineSmall : ''}`}>
+              ( Creativity without rest )
+            </div>
         </div>
       </div>
     </>

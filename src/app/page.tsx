@@ -26,7 +26,7 @@ export default function Page() {
       <Section id="process">
         <Process />
       </Section>
-      <div className="relative -mt-24 lg:-mt-24 pointer-events-none z-50">
+      <div className="relative -mt-4 lg:-mt-24 pointer-events-none z-50">
         <Image
           src="/sections/process/capabilities-ribbon.png"
           alt="Capabilities"

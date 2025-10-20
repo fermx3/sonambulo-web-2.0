@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FadeUp } from "@/lib/anim/FadeUp";
 
 export default function Clients() {
   const images: {
@@ -19,8 +20,9 @@ export default function Clients() {
     <div className="min-h-[90vh] w-full relative overflow-hidden bg-[var(--color-lime)]">
 
       <div className="relative inset-x-0 top-0 h-36 flex items-center justify-center md:pt-40">
-        <h2 className="uppercase font-(family-name:--font-alfarn) text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl leading-none">
-          <span className="block whitespace-nowrap">NUESTR<span>
+        <FadeUp>
+          <h2 className="uppercase font-(family-name:--font-alfarn) text-center text-[var(--color-blue)] text-4xl md:text-6xl lg:text-7xl leading-none">
+            <span className="block whitespace-nowrap">NUESTR<span>
             <Image
               src="/asterisco-azul.png"
               alt="asterisco sonambulo"
@@ -34,6 +36,7 @@ export default function Clients() {
           </span>S</span>
           <span className="block whitespace-nowrap">CLIENTES</span>
         </h2>
+        </FadeUp>
       </div>
 
       {/* contenido central: dejar espacio para el título */}

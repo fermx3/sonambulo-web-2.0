@@ -16,7 +16,7 @@ export default async function Page({ params }: Props) {
     slug === "companeros-en-ruta"
       ? {
           name: "Compañeros en Ruta",
-          portada: "/clientes/los-leales/portada.png",
+          portada: "/clientes/companeros-en-ruta/portada.png",
           insights: [
             {
               title: "El Problema",

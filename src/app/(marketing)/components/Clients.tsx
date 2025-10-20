@@ -9,7 +9,7 @@ export default function Clients() {
     { src: "/sections/clients/blends.png", alt: "Blends", link: "/portfolio/blends" },
     { src: "/sections/clients/cerveceria.png", alt: "Cerveceria el secreto", link: "/portfolio/cerveceria-el-secreto" },
     { src: "/sections/clients/colectivo.png", alt: "Colectivo Circular", link: "/portfolio/colectivo-circular" },
-    { src: "/sections/clients/leales.png", alt: "Los leales", link: "/portfolio/los-leales" },
+    { src: "/sections/clients/companeros-en-ruta.png", alt: "Compañeros en ruta", link: "/portfolio/companeros-en-ruta" },
   ];
 
   // duplicamos para que el marquee se vea continuo
@@ -52,8 +52,6 @@ export default function Clients() {
                   <Link
                     href={item.link ?? "#"}
                     className="absolute inset-0 z-10"
-                    target={item.link ? "_blank" : undefined}
-                    rel={item.link ? "noopener noreferrer" : undefined}
                   >
                     <span className="sr-only">{item.alt ?? `cliente-${i}`}</span>
                   </Link>

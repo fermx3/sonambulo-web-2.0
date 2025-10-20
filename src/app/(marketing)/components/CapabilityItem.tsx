@@ -95,7 +95,7 @@ export default function CapabilityItem({
 
           {/* expanded content */}
           <div
-            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] font-medium max-w-xl overflow-hidden ${
+            className={`transition-opacity duration-200 ease-out transform-gpu origin-top text-[var(--color-white)] font-medium max-w-xl text-xl overflow-hidden ${
               active
                 ? "opacity-100 scale-y-100 max-h-[800px] mt-4 md:mt-0"
                 : "opacity-0 scale-y-0 max-h-0 pointer-events-none"

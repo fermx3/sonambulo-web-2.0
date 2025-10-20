@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const MENU_ITEMS: { label: string; href: string }[] = [
-  { label: "ÍNDICE", href: "#" },
+  { label: "ÍNDICE", href: "/" },
   { label: "¿QUIÉNES SOMOS?", href: "/#about" },
   { label: "¿CÓMO LO HACEMOS?", href: "/#how" },
   { label: "CAPABILITIES", href: "/#capabilities" },

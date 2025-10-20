@@ -64,7 +64,7 @@ export default function ProcessCard({
             </span>
           </>
         ) : (
-          <p className="text-[var(--color-white)] text-sm md:text-base leading-relaxed max-w-[18rem] font-medium">
+          <p className="text-[var(--color-white)] text-xl max-w-[18rem] font-medium">
             {paragraph}
           </p>
         )}

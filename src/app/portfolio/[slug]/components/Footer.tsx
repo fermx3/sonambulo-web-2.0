@@ -194,7 +194,7 @@ export default function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-4 max-w-[800px] mx-auto font-bold">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-x-10 gap-y-2 pt-4 max-w-[800px] mx-auto font-bold">
           <div>
             <Link href="#" className="hover:underline">
               TÉRMINOS Y CONDICIONES

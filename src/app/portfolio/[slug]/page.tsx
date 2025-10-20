@@ -55,7 +55,7 @@ export default async function Page({ params }: Props) {
               url: "/clientes/companeros-en-ruta/carousel-2.png",
               alt: "Pines",
             },
-          ]
+          ],
         }
       : null;
 

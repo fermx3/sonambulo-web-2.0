@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FadeUp } from "@/lib/anim/FadeUp";
-import { Parallax } from "@/lib/anim/Parallax";
+import FloatingAsterisks from "./FloatingAsterisks";
 
 export default function How() {
   return (
@@ -28,10 +28,10 @@ export default function How() {
             priority={true}
           />
         </div>
-      <div className="relative lg:container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <div className="relative xl:container mx-auto px-6 lg:px-12 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left column: text */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 z-10 drop-shadow-sm drop-shadow-stone-950">
             <div className="mt-12">
               <FadeUp>
                 <p className="text-[2rem] text-[var(--color-white)] font-medium ">
@@ -57,13 +57,8 @@ export default function How() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
             <FadeUp>
               <div className="relative w-full max-w-[520px] lg:max-w-[600px]">
-                {/* accent blob bottom-right with parallax */}
-                <Parallax start={-100} end={100}>
-                  <div
-                    className="absolute -right-6 bottom-[-320px] w-36 h-36 bg-[var(--color-lime)] rounded-full filter blur-sm opacity-90 pointer-events-none blob-pulse"
-                    aria-hidden
-                  />
-                </Parallax>
+                {/* Asteriscos flotantes que emergen de la caja fuerte */}
+                <FloatingAsterisks />
 
                 <div className="relative w-full h-64 md:h-80 lg:h-96" style={{ aspectRatio: "4/3" }}>
                   <Image

@@ -24,12 +24,21 @@ export default function Process() {
   ];
 
   return (
-    <div className="relative min-h-[110vh] w-full overflow-hidden bg-[var(--color-blue)]">
-      {<div
-        className="absolute w-vw left-0 right-0 top-0 h-[28vh] bg-[url('/sections/how/recorte-2.png')] bg-no-repeat bg-center bg-cover overflow-hidden"
-        aria-hidden
-      />}
-      <div className="relative min-h-[110dvh] flex flex-col justify-center items-center">
+    <div className="relative min-h-[110vh] w-full bg-[var(--color-blue)] z-50 -mt-10">
+      {/* Imagen de recorte que se superpone a la sección anterior */}
+      <div className="absolute inset-x-0 -top-12 h-[40vh] z-10">
+        <Image
+          src="/sections/how/recorte-2.png"
+          alt=""
+          fill
+          className="object-cover object-bottom"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
+
+      {/* Contenido principal */}
+      <div className="relative z-20 min-h-[110dvh] flex flex-col justify-center items-center">
         <div className="container mx-auto px-6 lg:px-12 pt-50 md:pt-20 pb-34 lg:pb-20">
           {/* Top title */}
           <h2

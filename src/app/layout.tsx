@@ -7,6 +7,17 @@ import Nav from "./(marketing)/components/Nav";
 import { CustomCursor } from "@/lib/anim/CustomCursor";
 import { CursorTrail } from "@/lib/anim/ParticleSystem";
 
+// Component wrapper for desktop-only cursor
+function DesktopCursor() {
+  return (
+    <>
+      <div className="hidden lg:block">
+        <CustomCursor />
+      </div>
+    </>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Sonámbulo Estudio Creativo",
   description: "Sonámbulo Website - Creativity without rest",
@@ -40,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="stylesheet" href="https://use.typekit.net/bms8ymp.css" />
       </head>
       <body>
-        <CustomCursor />
+        <DesktopCursor />
         <CursorTrail
           trailLength={15}
           colors={["rgba(217, 255, 3, 0.6)", "rgba(51, 255, 194, 0.4)"]}

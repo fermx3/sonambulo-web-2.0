@@ -106,6 +106,7 @@ export default function Contact() {
                         height={35}
                         priority
                         draggable={false}
+                        className={"pointer-events-none"}
                       />
                     </a>
                     <a
@@ -120,6 +121,7 @@ export default function Contact() {
                         height={35}
                         priority
                         draggable={false}
+                        className={"pointer-events-none"}
                       />
                     </a>
                     <a
@@ -134,6 +136,7 @@ export default function Contact() {
                         height={35}
                         priority
                         draggable={false}
+                        className={"pointer-events-none"}
                       />
                     </a>
                   </div>

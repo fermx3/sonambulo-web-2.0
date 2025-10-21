@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FadeUp } from "@/lib/anim/FadeUp";
 import FloatingAsterisks from "./FloatingAsterisks";
+import { CharacterReveal, TextHighlight, GlitchText } from "@/lib/anim/TextAnimations";
 
 export default function How() {
   return (
@@ -34,19 +35,37 @@ export default function How() {
           <div className="lg:col-span-7 z-10 drop-shadow-sm drop-shadow-stone-950">
             <div className="mt-12">
               <FadeUp>
-                <p className="text-[2rem] text-[var(--color-white)] font-medium ">
-                  Tenemos un gran diferenciador...
-                </p>
+                <CharacterReveal
+                  text="Tenemos un gran diferenciador..."
+                  delay={0.05}
+                  animation="fade-up"
+                  className="text-[2rem] text-[var(--color-white)] font-medium"
+                />
               </FadeUp>
 
               <FadeUp>
                 <h2 className="font-extrabold text-5xl md:text-6xl lg:text-7xl">
-                  <span className="block mt-2 text-[var(--color-lime)] font-(family-name:--font-montserrat) font-black italic lg:translate-x-12">BLINDAMOS</span>
+                  <GlitchText
+                    text="BLINDAMOS"
+                    intensity={3}
+                    duration={4}
+                    className="block mt-2 text-[var(--color-lime)] font-(family-name:--font-montserrat) font-black italic lg:translate-x-12"
+                  />
                   <span className="block text-2xl md:text-3xl font-medium mt-2 text-[var(--color-white)] lg:translate-x-24">
                     a las marcas desde el{" "}
-                    <span className="text-[var(--color-teal)]">trade</span> hasta
+                    <TextHighlight
+                      highlightColor="rgba(51, 255, 194, 0.3)"
+                      className="text-[var(--color-teal)]"
+                    >
+                      trade
+                    </TextHighlight> hasta
                     el{" "}
-                    <span className="text-[var(--color-teal)]">consumidor</span>.
+                    <TextHighlight
+                      highlightColor="rgba(51, 255, 194, 0.3)"
+                      className="text-[var(--color-teal)]"
+                    >
+                      consumidor
+                    </TextHighlight>.
                   </span>
                 </h2>
               </FadeUp>

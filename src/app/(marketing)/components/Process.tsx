@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProcessCard from "./ProcessCard";
+import { StaggeredFadeIn } from "@/lib/anim/StaggeredFadeIn";
 
 export default function Process() {
   const cards = [
@@ -67,8 +68,13 @@ export default function Process() {
             </span>
             <span className="ml-1">CESO</span>
           </h2>
-          {/* Cards row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-stretch mx-12">
+          {/* Cards row with staggered animation */}
+          <StaggeredFadeIn
+            staggerDelay={0.2}
+            direction="up"
+            distance={50}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-stretch mx-12"
+          >
             {cards.map((c, idx) => (
               <ProcessCard
                 key={idx}
@@ -79,7 +85,7 @@ export default function Process() {
                 description={c.description}
               />
             ))}
-          </div>
+          </StaggeredFadeIn>
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import SmoothScroll from "./(marketing)/components/SmoothScroll";
 import { Montserrat, Darker_Grotesque } from "next/font/google";
 import Nav from "./(marketing)/components/Nav";
+import { CustomCursor } from "@/lib/anim/CustomCursor";
+import { CursorTrail } from "@/lib/anim/ParticleSystem";
 
 export const metadata: Metadata = {
   title: "Sonámbulo Estudio Creativo",
@@ -38,6 +40,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="stylesheet" href="https://use.typekit.net/bms8ymp.css" />
       </head>
       <body>
+        <CustomCursor />
+        <CursorTrail
+          trailLength={15}
+          colors={["rgba(217, 255, 3, 0.6)", "rgba(51, 255, 194, 0.4)"]}
+        />
         <Nav />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

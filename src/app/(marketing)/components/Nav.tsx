@@ -67,7 +67,7 @@ export default function Nav() {
   return (
     <div ref={containerRef} className="fixed flex flex-col items-end top-5 right-5 md:top-12 md:right-14 z-[99999] pointer-events-auto">
       <div className="relative">
-        {/* Botón MENÚ siempre visible */}
+        {/* Botón MENÚ siempre visible con efectos avanzados */}
         <motion.button
           type="button"
           aria-haspopup="menu"
@@ -83,14 +83,57 @@ export default function Nav() {
               }
             }
           }}
-          className="relative z-10 uppercase font-black tracking-wide text-base md:text-lg lg:text-xl focus:outline-none rounded bg-transparent px-3 py-2"
+          className="relative z-10 uppercase font-black tracking-wide text-base md:text-lg lg:text-xl focus:outline-none rounded bg-transparent px-3 py-2 overflow-hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          whileHover={{
+            scale: 1.05,
+            textShadow: open
+              ? "0 0 12px rgba(217, 255, 3, 0.8)"
+              : "0 0 12px rgba(6, 6, 255, 0.8)",
+            transition: { duration: 0.2 }
+          }}
+          whileTap={{
+            scale: 0.95,
+            transition: { duration: 0.1 }
+          }}
           animate={{
-            color: open ? "var(--color-lime)" : "var(--color-blue)"
+            color: open ? "var(--color-lime)" : "var(--color-blue)",
+            rotate: open ? 2 : 0
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          ( MENÚ )
+          {/* Background glow effect */}
+          <motion.span
+            className="absolute inset-0 rounded opacity-20"
+            animate={{
+              background: open
+                ? "radial-gradient(circle, rgba(217, 255, 3, 0.3) 0%, transparent 70%)"
+                : "radial-gradient(circle, rgba(6, 6, 255, 0.3) 0%, transparent 70%)",
+              scale: open ? 1.2 : 0.8
+            }}
+            transition={{ duration: 0.4 }}
+          />
+
+          {/* Text with morphing effect */}
+          <motion.span
+            className="relative z-10"
+            animate={{
+              letterSpacing: open ? "0.15em" : "0.1em"
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            ( MENÚ )
+          </motion.span>
+
+          {/* Animated border */}
+          <motion.span
+            className="absolute inset-0 border-2 rounded"
+            animate={{
+              borderColor: open ? "var(--color-lime)" : "transparent",
+              scale: open ? 1 : 0.9
+            }}
+            transition={{ duration: 0.3 }}
+          />
         </motion.button>
 
         {/* Panel que se materializa alrededor del botón */}
@@ -145,27 +188,79 @@ export default function Nav() {
               >
                 {/* Lista de elementos del menú */}
                 <motion.ul
-                  className={`flex flex-col text-right space-y-0 h-full pt-7 justify-evenly ${isMobile ? 'py-4' : 'py-2'}`}
+                  className={`flex flex-col text-right space-y-0 h-full pt-8 justify-evenly ${isMobile ? 'py-4' : 'py-2'}`}
                   role="none"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
-                  {MENU_ITEMS.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        role="menuitem"
-                        onClick={closeMenu}
-                        className={`block ps-3 text-white/90 font-black hover:text-[var(--color-lime)] hover:bg-[rgba(255,255,255,0.05)] rounded transition-all duration-200 ease-out ${
-                          isMobile
-                            ? 'py-3 text-lg'
-                            : 'py-1 text-xl'
-                        }`}
+                  {MENU_ITEMS.map((item, index) => (
+                    <motion.li
+                      key={item.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.3 + (index * 0.1),
+                        ease: "easeOut"
+                      }}
+                    >
+                      <motion.div
+                        whileHover={{
+                          scale: 1.05,
+                          x: 8,
+                          transition: { duration: 0.2 }
+                        }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        {item.label}
-                      </Link>
-                    </li>
+                        <Link
+                          href={item.href}
+                          role="menuitem"
+                          onClick={closeMenu}
+                          className={`block ps-3 text-white/90 font-black relative overflow-hidden rounded group ${
+                            isMobile
+                              ? 'py-3 text-lg'
+                              : 'py-1 text-xl'
+                          }`}
+                        >
+                          {/* Background hover effect */}
+                          <motion.span
+                            className="absolute inset-0 bg-gradient-to-r from-[var(--color-lime)]/10 to-[var(--color-teal)]/10 rounded"
+                            initial={{ scaleX: 0, originX: 0 }}
+                            whileHover={{
+                              scaleX: 1,
+                              transition: { duration: 0.3, ease: "easeOut" }
+                            }}
+                          />
+
+                          {/* Text with glow effect */}
+                          <motion.span
+                            className="relative z-10 inline-block pointer-events-none"
+                            whileHover={{
+                              color: "var(--color-lime)",
+                              textShadow: "0 0 8px rgba(217, 255, 3, 0.6)",
+                              transition: { duration: 0.2 }
+                            }}
+                          >
+                            {item.label}
+                          </motion.span>
+
+                          {/* Decorative asterisk */}
+                          <motion.span
+                            className="inline-block ml-2 text-[var(--color-lime)]"
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileHover={{
+                              opacity: 1,
+                              scale: 1,
+                              rotate: 360,
+                              transition: { duration: 0.5, ease: "easeOut" }
+                            }}
+                          >
+                            ✱
+                          </motion.span>
+                        </Link>
+                      </motion.div>
+                    </motion.li>
                   ))}
                 </motion.ul>
               </motion.div>

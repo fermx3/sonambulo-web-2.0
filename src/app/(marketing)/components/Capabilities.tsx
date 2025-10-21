@@ -1,5 +1,5 @@
 import CapabilityItem from "./CapabilityItem";
-import { FadeUp } from "@/lib/anim/FadeUp";
+import { StaggeredFadeIn } from "@/lib/anim/StaggeredFadeIn";
 
 export default function Capabilities() {
   const items = [
@@ -29,18 +29,22 @@ export default function Capabilities() {
         CAPABILITIES
       </h2>
 
-      <div className="w-full space-y-8">
+      <StaggeredFadeIn
+        staggerDelay={0.15}
+        direction="left"
+        distance={60}
+        className="w-full space-y-8"
+      >
         {items.map((it) => (
-          <FadeUp key={it.titulo}>
-            <CapabilityItem
-              titulo={it.titulo}
-              colorClass={it.colorClass}
-              description={it.description}
-              bullets={it.bullets}
-            />
-          </FadeUp>
+          <CapabilityItem
+            key={it.titulo}
+            titulo={it.titulo}
+            colorClass={it.colorClass}
+            description={it.description}
+            bullets={it.bullets}
+          />
         ))}
-      </div>
+      </StaggeredFadeIn>
       <div
         className="absolute w-vw left-0 right-0 bottom-0 h-[51vh] pointer-events-none bg-[url('/sections/clients/recorte-clientes.png')] bg-no-repeat bg-bottom bg-contain overflow-hidden"
         aria-hidden

@@ -65,7 +65,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <div ref={containerRef} className="fixed flex flex-col items-end top-5 right-5 md:top-12 md:right-14 z-[99999] pointer-events-auto">
+    <nav ref={containerRef} className="fixed flex flex-col items-end top-5 right-5 md:top-12 md:right-14 z-[99999] pointer-events-auto max-w-screen">
       <div className="relative">
         {/* Botón MENÚ siempre visible con efectos avanzados */}
         <motion.button
@@ -268,6 +268,6 @@ export default function Nav() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </nav>
   );
 }

@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <link rel="stylesheet" href="https://use.typekit.net/bms8ymp.css" />
       </head>
-      <body>
+      <body className="max-w-screen">
         <DesktopCursor />
         <CursorTrail
           trailLength={15}

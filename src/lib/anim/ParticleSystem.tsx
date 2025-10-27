@@ -220,15 +220,16 @@ export function CursorTrail({
   colors?: string[];
 }) {
   const [trail, setTrail] = useState<{ x: number; y: number; id: number }[]>([]);
+  const idCounterRef = useRef(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      idCounterRef.current += 1;
       const newPoint = {
         x: e.clientX,
         y: e.clientY,
-        id: Date.now(),
+        id: idCounterRef.current,
       };
-
 
       setTrail((prevTrail) => {
         const newTrail = [newPoint, ...prevTrail.slice(0, trailLength - 1)];

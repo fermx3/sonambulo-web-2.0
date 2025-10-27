@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { JSX } from 'react';
 import classes from './Hero.module.scss';
-import Link from 'next/link';
 
 export default function Hero(): JSX.Element {
   const MIN_VISIBLE_MS = 1000; // mantener logo grande al menos 1s durante el loader
@@ -48,10 +47,21 @@ export default function Hero(): JSX.Element {
     };
   }, []);
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
-      <div className={classes.mainContainer}>
-        {/* overlay: durante el loader solo mostramos el logo grande */}
+      <div id="hero" className={classes.mainContainer}>
         <div
           className={`${classes.logo} ${compact ? classes.logoCompact : ''}`}
           role="status"
@@ -59,25 +69,14 @@ export default function Hero(): JSX.Element {
         >
           <div className={classes.logoInner}>
             {compact ? (
-              <Link
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (typeof window !== 'undefined') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
+              <div
+                onClick={handleLogoClick}
+                className="cursor-pointer"
+                style={{
+                  position: 'relative',
+                  zIndex: 9999,
+                  pointerEvents: 'auto'
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    if (typeof window !== 'undefined') {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }
-                }}
-                aria-label="Ir al inicio"
-                className="inline-block relative z-50"
-                style={{ pointerEvents: 'auto' }}
               >
                 <Image
                   src="/logo-compact-dark-bg.svg"
@@ -87,8 +86,9 @@ export default function Hero(): JSX.Element {
                   sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
                   className={`${classes.logoImage} ${classes.logoCompact}`}
                   priority
+                  draggable={false}
                 />
-              </Link>
+              </div>
             ) : (
               <Image
                 src="/logo-dark-bg.svg"
@@ -98,6 +98,7 @@ export default function Hero(): JSX.Element {
                 sizes="(min-width: 1200px) 576px, (min-width: 768px) 468px, 324px"
                 className={classes.logoImage}
                 priority
+                draggable={false}
               />
             )}
           </div>

@@ -237,12 +237,16 @@
   -webkit-backdrop-filter: none;
   background: transparent;
   z-index: 1600; /* mayor que el overlay para asegurar clics */
-  pointer-events: auto; /* permitir interacción */
+  pointer-events: auto; /* Ensure clicks work */
   align-items: flex-start;
   justify-content: flex-start;
-  background: transparent;
   height: auto;
   transition: transform 200ms cubic-bezier(.22,.9,.26,1);
+
+  /* Ensure the inner content is also clickable */
+  .logoInner {
+    pointer-events: auto;
+  }
 }
 
 /* when overlay is compacted (logo moved to corner) */

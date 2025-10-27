@@ -285,6 +285,18 @@
   transition: transform 500ms ease, font-size 500ms ease, opacity 400ms;
   z-index: 6;
 }
+
+/* Center tagline on mobile */
+@media (max-width: 768px) {
+  .taglineSmall {
+    right: 50%;
+    bottom: 38%;
+    transform: translateX(50%);
+    text-align: center;
+    width: 80%;
+  }
+}
+
 .taglineSmall {
   font-size: 28px;
 }

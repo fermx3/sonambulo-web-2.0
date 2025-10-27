@@ -72,7 +72,103 @@ export default function About() {
 
 	// child component: hooks inside allowed
 
-	function Step({
+	// Componente que solo renderiza el eyebrow (texto superior)
+	function EyebrowOnly({
+		step,
+		index,
+		total,
+		progress,
+	}: {
+		step: (typeof STEPS)[number];
+		index: number;
+		total: number;
+		progress: MotionValue<number>;
+	}) {
+		const { start, in: inStart, out: outEnd, end } = windowFor(index, total);
+
+		// Enhanced 3D motion values for eyebrow - FASTER DISAPPEARANCE
+		const eyebrowY = useTransform(
+			progress,
+			[start, inStart, outEnd, end],
+			[-300, 0, 60, 400] // Reduced middle value for faster initial movement
+		);
+
+		const eyebrowScale = useTransform(
+			progress,
+			[start, inStart, outEnd, end],
+			[0, 1, 1.05, 3] // Stays normal size longer, then grows fast
+		);
+
+		const eyebrowOpacity = useTransform(
+			progress,
+			[start, inStart, outEnd, end],
+			[0, 1, 1, 0] // Opacity 1 en posición original, luego fade out rápido
+		);
+
+		// Add perspective rotation for enhanced 3D effect - FASTER ROTATION
+		const eyebrowRotateX = useTransform(
+			progress,
+			[start, inStart, outEnd, end],
+			[-30, 0, 5, 30] // Less rotation in middle, faster at end
+		);
+
+		return (
+			<motion.p
+				style={{
+					opacity: eyebrowOpacity,
+					y: eyebrowY,
+					scale: eyebrowScale,
+					rotateX: eyebrowRotateX,
+				}}
+				className="absolute top-[43vh] left-1/2 -translate-x-1/2 z-10
+          md:text-[var(--color-white)] text-center
+          md:text-[2.5rem]
+          px-3 py-2 pointer-events-none md:max-w-48 h-32 md:text-left items-left justify-end
+          flex flex-col whitespace-pre-line object-left leading-tight
+          [transform-style:preserve-3d]"
+				transition={{
+					type: "spring",
+					stiffness: 100,
+					damping: 25,
+				}}
+			>
+				{step.one_line ? (
+					<span>{step.eyebrow}</span>
+				) : (
+					(() => {
+						const words = step.eyebrow.split(" ");
+						const lines = [];
+
+						// Llenar desde abajo hacia arriba: últimas 2 palabras juntas en la línea de abajo
+						let remainingWords = [...words];
+
+						while (remainingWords.length > 0) {
+							if (remainingWords.length <= 2) {
+								// Si quedan 2 o menos palabras, van todas en una línea
+								lines.unshift(remainingWords.join(" "));
+								break;
+							} else {
+								// Tomar las últimas 2 palabras para la línea de abajo
+								const lastTwo = remainingWords.slice(-2);
+								lines.unshift(lastTwo.join(" "));
+								remainingWords = remainingWords.slice(0, -2);
+							}
+						}
+
+						// Renderizar desde abajo hacia arriba (flex-col + justify-end)
+						return lines.map((line, i) => (
+							<span key={i} className="block md:text-[1.9rem]">
+								{line}
+							</span>
+						));
+					})()
+				)}
+			</motion.p>
+		);
+	}
+
+	// Componente que solo renderiza el contenido principal (título y subtítulo)
+	function MainContentOnly({
 		step,
 		index,
 		total,
@@ -109,98 +205,40 @@ export default function About() {
 			[2, 0, 0, -1]
 		);
 
-		// Enhanced 3D motion values for eyebrow - FASTER DISAPPEARANCE
-		const eyebrowY = useTransform(
-			progress,
-			[start, inStart, outEnd, end],
-			[-300, 0, 50, 400] // Reduced middle value for faster initial movement
-		);
-
-		const eyebrowScale = useTransform(
-			progress,
-			[start, inStart, outEnd, end],
-			[0, 1, 1.05, 3] // Stays normal size longer, then grows fast
-		);
-
-		const eyebrowOpacity = useTransform(
-			progress,
-			[start, inStart, outEnd, end],
-			[0, 1, 0.2, 0] // Fades out much faster when movement starts
-		);
-
-		// Add perspective rotation for enhanced 3D effect - FASTER ROTATION
-		const eyebrowRotateX = useTransform(
-			progress,
-			[start, inStart, outEnd, end],
-			[-30, 0, 5, 30] // Less rotation in middle, faster at end
-		);
-
 		const subtitleY = useTransform(progress, [start, inStart], [30, 0]);
 
 		return (
-			<>
-				{/* Eyebrow with 3D exit animation */}
-				<motion.p
-					style={{
-						opacity: eyebrowOpacity,
-						y: eyebrowY,
-						scale: eyebrowScale,
-						rotateX: eyebrowRotateX,
-					}}
-					className="absolute top-[40vh] left-1/2 -translate-x-1/2 z-10
-          md:text-[var(--color-white)] text-center
-          md:text-[2rem]
-          px-3 py-2 pointer-events-none md:max-w-fit h-32 md:text-left items-left justify-end
-          flex flex-col whitespace-pre-line object-left
-          [transform-style:preserve-3d]"
-					transition={{
-						type: "spring",
-						stiffness: 100,
-						damping: 25,
-					}}
-				>
-					{step.one_line ? (
-						<span>{step.eyebrow}</span>
-					) : (
-						step.eyebrow
-							.split(" ")
-							.map((word, i) => <span key={i}>{word}</span>)
-					)}
-				</motion.p>
-
-				{/* Main content container */}
-				<motion.div
-					style={{ opacity, y, scale, rotate }}
-					className="absolute bottom-18 mx-auto px-6 text-center pointer-events-none flex flex-col items-center overflow-hidden max-w-[90vw]
+			<motion.div
+				style={{ opacity, y, scale, rotate }}
+				className="absolute bottom-18 mx-auto px-6 text-center pointer-events-none flex flex-col items-center overflow-hidden max-w-[90vw]
           md:top-[80vh] py-10 md:bottom-auto md:transform md:-translate-y-1/2"
-					transition={{
-						type: "spring",
-						stiffness: 100,
-						damping: 30,
+				transition={{
+					type: "spring",
+					stiffness: 100,
+					damping: 30,
+				}}
+			>
+				<motion.h3
+					style={{
+						y: useTransform(progress, [start, inStart], [40, 0]),
+						scale: useTransform(progress, [inStart, outEnd], [1.1, 1]),
 					}}
+					className="text-[36px] md:text-[64px] font-(family-name:--font-alfarn) leading-tight tracking-tight text-[var(--color-ink)]"
 				>
-					<motion.h3
-						style={{
-							y: useTransform(progress, [start, inStart], [40, 0]),
-							scale: useTransform(progress, [inStart, outEnd], [1.1, 1]),
-						}}
-						className="text-[36px] md:text-[64px] font-(family-name:--font-alfarn) leading-tight tracking-tight text-[var(--color-ink)]"
-					>
-						{step.title}
-					</motion.h3>
+					{step.title}
+				</motion.h3>
 
-					{step.subtitle && (
-						<motion.p
-							style={{
-								y: subtitleY,
-							}}
-							className="text-[var(--color-ink)] md:text-[1.5rem] lg:text-[2rem] max-w-2xl mt-4"
-						>
-							{step.subtitle}
-						</motion.p>
-					)}
-				</motion.div>
-			</>
+				{step.subtitle && (
+					<motion.p
+						style={{
+							y: subtitleY,
+						}}
+						className="text-[var(--color-ink)] md:text-[1.5rem] lg:text-[2rem] max-w-2xl mt-4"
+					>
+						{step.subtitle}
+					</motion.p>
+				)}
+			</motion.div>
 		);
 	}
 
@@ -215,7 +253,7 @@ export default function About() {
 				style={{ minHeight: `${totalVh}vh` }}
 				className="relative bg-[var(--color-lime)] hidden lg:block"
 			>
-				{/* Sticky container that occupies the viewport while scrolling through the section */}
+				{/* Sticky container that ocupies the viewport while scrolling through the section */}
 				<div className="sticky top-0 h-screen">
 					{/* Centered background image (keeps visual fixed in the sticky block) */}
 					<div className="absolute inset-x-0 top-0 z-0 flex justify-center h-[60dvh] w-full overflow-hidden">
@@ -228,11 +266,30 @@ export default function About() {
 						/>
 					</div>
 
-					{/* Layer that holds the stacked step texts */}
+					{/* Fondo verde que cubre desde donde termina el asterisco hasta abajo */}
+					<div className="absolute inset-x-0 top-[60dvh] bottom-0 z-0 bg-[var(--color-lime)]" />
+
+					{/* Máscara que recorta el contenido del eyebrow solo en el área del asterisco */}
+					<div className="absolute inset-x-0 top-0 h-[60dvh] z-5 overflow-hidden">
+						{/* Layer que contiene solo los eyebrows (texto pequeño superior) */}
+						<div className="relative flex justify-center h-full">
+							{STEPS.map((s, i) => (
+								<EyebrowOnly
+									key={`eyebrow-${s.id}`}
+									step={s}
+									index={i}
+									total={stepsCount}
+									progress={scrollYProgress}
+								/>
+							))}
+						</div>
+					</div>
+
+					{/* Layer que contiene el contenido principal (títulos y subtítulos) */}
 					<div className="relative flex justify-center z-10 h-full">
 						{STEPS.map((s, i) => (
-							<Step
-								key={s.id}
+							<MainContentOnly
+								key={`main-${s.id}`}
 								step={s}
 								index={i}
 								total={stepsCount}

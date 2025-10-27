@@ -19,7 +19,7 @@ export default function Contact() {
         />
       </div>
       {/* top-left form decoration */}
-      <div className="absolute -left-10 md:-left-30 -top-65 md:-top-78 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-0">
+      <div className="absolute -left-10 md:-left-30 -top-40 md:-top-78 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-0">
         <Image
           src="/sections/clients/forma-azul.png"
           alt="forma azul"
@@ -30,7 +30,7 @@ export default function Contact() {
         />
       </div>
       {/* top-left form decoration */}
-      <div className="absolute -left-10 md:-left-10 -top-60 md:-top-66 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-10 rotate-12">
+      <div className="absolute -left-10 md:-left-10 -top-35 md:-top-66 w-36 h-36 md:w-68 md:h-68 pointer-events-none overflow-visible z-10 rotate-12">
         <Image
           src="/sections/clients/contorno.png"
           alt="contorno"

@@ -17,7 +17,7 @@ export default function Clients() {
   const marqueeList = [...images, ...images, ...images, ...images, ...images];
 
   return (
-    <div className="min-h-[90vh] w-full relative overflow-hidden bg-[var(--color-lime)]">
+    <div className="min-h-[70vh] md:min-h-[90vh] w-full relative overflow-hidden bg-[var(--color-lime)]">
 
       <div className="relative inset-x-0 top-0 h-36 flex items-center justify-center md:pt-40">
         <FadeUp>

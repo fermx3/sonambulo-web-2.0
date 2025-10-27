@@ -1,0 +1,144 @@
+{
+  "companeros-en-ruta": {
+    "name": "Compañeros en Ruta",
+    "portada": "/clientes/companeros-en-ruta/portada.png",
+    "insights": [
+      {
+        "title": "El Problema",
+        "description": "Iberia estaba perdiendo terreno desde su estrategia de road to market, impactando en todo su desarrollo.",
+        "imageSrc": "/clientes/companeros-en-ruta/1.png",
+        "imageAlt": "Persona con delantal",
+        "imagePosition": "right",
+        "borderColor": "teal"
+      },
+      {
+        "title": "El Insight",
+        "description": "Necesitaban dejar de ser percibidos como un jugador más y convertirse en un aliado estratégico integral que brinda soluciones e incentivos tangibles",
+        "imageSrc": "/clientes/companeros-en-ruta/2.png",
+        "imageAlt": "Tienda con productos",
+        "imagePosition": "left",
+        "borderColor": "blue"
+      },
+      {
+        "title": "La Solución",
+        "description": "Compañeros un Ruta. Una estrategia que surge del trade y se extiende hasta el consumidor final.",
+        "imageSrc": "/clientes/companeros-en-ruta/3.png",
+        "imageAlt": "Posters de la campaña",
+        "imagePosition": "right",
+        "borderColor": "lime"
+      }
+    ],
+    "carousel_images": [
+      {
+        "url": "/clientes/companeros-en-ruta/carousel-1.png",
+        "alt": "Pin"
+      },
+      {
+        "url": "/clientes/companeros-en-ruta/carousel-2.png",
+        "alt": "Pines"
+      }
+    ]
+  },
+  "cerveceria-el-secreto": {
+    "name": "Cerveceria el secreto 1881",
+    "portada": "/clientes/cerveceria-el-secreto/portada.jpg",
+    "insights": [
+      {
+        "title": "El Problema",
+        "description": "Cervecería El Secreto 1881 tenía una serie de productos desconocidos por su audiencia. Necesitaban un diagnóstico certero para entender su contexto, refrescar su posicionamiento y desarrollar canales de distribución.",
+        "imageSrc": "/clientes/cerveceria-el-secreto/1.png",
+        "imageAlt": "Variedad de cervezas",
+        "imagePosition": "right",
+        "borderColor": "teal"
+      },
+      {
+        "title": "El Insight",
+        "description": "La cerveza, más que una bebida, es un símbolo de orgullo e identificación de comunidades",
+        "imageSrc": "/clientes/cerveceria-el-secreto/2.png",
+        "imageAlt": "Tienda con productos",
+        "imagePosition": "left",
+        "borderColor": "blue"
+      },
+      {
+        "title": "La Solución",
+        "description": "Reconstruimos la marca: desde la arquitectura, hasta el posicionamiento, el naming, el branding, los canales de distribución, hasta la reconstrucción de productos. Creamos una identidad visual para cada sabor de cerveza, dándole una identidad propia, sin perder el hilo conductor de la marca en general. Construimos un concepto creativo para celebrar a la primera marca de cerveza artesanal hecha en la CDMX: Culto a la chela.",
+        "imageSrc": "/clientes/cerveceria-el-secreto/3.png",
+        "imageAlt": "Posters de la campaña",
+        "imagePosition": "right",
+        "borderColor": "lime"
+      }
+    ],
+    "carousel_images": [
+      {
+        "url": "/clientes/cerveceria-el-secreto/carousel-1.jpg",
+        "alt": "Cervezas"
+      },
+      {
+        "url": "/clientes/cerveceria-el-secreto/carousel-2.png",
+        "alt": "Pines"
+      }
+    ]
+  },
+  "blends": {
+    "name": "Blends",
+    "portada": "/clientes/blends/portada.png",
+    "insights": [
+      {
+        "title": "El Problema",
+        "description": "Blends Botanicare es una marca que mezcla el poder de la ciencia con la sabiduría de la naturaleza, sin embargo, no han logrado comunicad su ADN a una audiencia cada vez más exigente.",
+        "imageSrc": "/clientes/blends/1.png",
+        "imageAlt": "Tu camino al autocuidado",
+        "imagePosition": "right",
+        "borderColor": "teal"
+      },
+      {
+        "title": "El Insight",
+        "description": "La ciencia y la naturaleza no son fuerzas contrarias, sino complementarias.",
+        "imageSrc": "/clientes/blends/2.png",
+        "imageAlt": "Equilibrio entre cuidar tu belleza y proteger tu alma",
+        "imagePosition": "left",
+        "borderColor": "blue"
+      },
+      {
+        "title": "La Solución",
+        "description": "Creamos una nueva construcción de marca. Desde el concepto, sus diferenciados, RTBS, estrategia de contenido, hasta materiales en punto de venta. A través de Esto es Blends refrescamos la imagen de marca y logramos conectar con su audiencia.",
+        "imageSrc": "/clientes/blends/3.png",
+        "imageAlt": "Equilibrio enrte la ciencia y la naturaleza",
+        "imagePosition": "right",
+        "borderColor": "lime"
+      }
+    ],
+    "carousel_images": []
+  },
+  "usmef": {
+    "name": "USMEF",
+    "portada": "/clientes/usmef/portada.png",
+    "insights": [
+      {
+        "title": "El Problema",
+        "description": "La gente cree que la industria cárnica es el principal contaminante del medio ambiente, pero desconocen todas las iniciativas que se hacen para reducir el impacto climático y caminar hacia una industria circular.",
+        "imageSrc": "/clientes/usmef/1.png",
+        "imageAlt": "Ecologia / economia",
+        "imagePosition": "right",
+        "borderColor": "teal"
+      },
+      {
+        "title": "El Insight",
+        "description": "La gente desconoce que detrás de la producción cárnica, hay iniciativas que buscan transformar la industria",
+        "imageSrc": "/clientes/usmef/2.png",
+        "imageAlt": "El futuro es circular",
+        "imagePosition": "left",
+        "borderColor": "blue"
+      },
+      {
+        "title": "La Solución",
+        "description": "Colectivo Circular.\nUna plataforma de contenidos multi-canal (online y off line) en la que creamos experiencias, contamos historias y lanzamos un llamado a la acción para combatir la desinformación acerca de la crisis climática y la contaminación a través de la promoción de iniciativas centradas en el consumo responsable, de carne, la información verificable y la promoción de un estilo de vida circular.",
+        "imageSrc": "/clientes/usmef/3.png",
+        "imageAlt": "Colectivo Circular",
+        "imagePosition": "right",
+        "borderColor": "lime"
+      }
+    ],
+    "carousel_images": []
+  }
+}

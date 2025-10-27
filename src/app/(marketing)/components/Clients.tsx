@@ -9,7 +9,7 @@ export default function Clients() {
 }[] = [
     { src: "/clientes/blends/link.png", alt: "Blends", link: "/portfolio/blends" },
     { src: "/clientes/cerveceria-el-secreto/link.png", alt: "Cerveceria el secreto", link: "/portfolio/cerveceria-el-secreto" },
-    { src: "/clientes/usmef/link.png", alt: "Colectivo Circular", link: "/portfolio/colectivo-circular" },
+    { src: "/clientes/usmef/link.png", alt: "Colectivo Circular", link: "/portfolio/usmef" },
     { src: "/clientes/companeros-en-ruta/link.png", alt: "Compañeros en ruta", link: "/portfolio/companeros-en-ruta" },
   ];
 

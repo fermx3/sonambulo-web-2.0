@@ -1,16 +1,20 @@
-import Image from 'next/image';
+import { ImageWithFallback } from '@/app/(marketing)/components/ImageWithFallback';
+import { heroBlurDataURL } from '@/lib/utils/image-placeholders';
 
 export default function PortfolioHero({ name, portada }: { name: string; portada: string }) {
   return (
     <section className="relative w-full h-[60vh] lg:h-[80vh] overflow-hidden bg-zinc-900">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <ImageWithFallback
           src={portada}
-          alt="Background"
+          alt={`${name} portfolio background`}
           fill
           className="object-cover opacity-60 grayscale"
           priority
+          placeholder="blur"
+          blurDataURL={heroBlurDataURL}
+          sizes="100vw"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -18,12 +22,13 @@ export default function PortfolioHero({ name, portada }: { name: string; portada
 
       {/* Top torn paper effect */}
       <div className="absolute top-0 left-0 w-full z-20 pointer-events-none">
-        <Image
+        <ImageWithFallback
           src="/sections/how/recorte-2.png"
           alt=""
           width={1920}
           height={200}
           className="w-full h-auto"
+          sizes="100vw"
         />
       </div>
 
@@ -36,12 +41,13 @@ export default function PortfolioHero({ name, portada }: { name: string; portada
 
       {/* Bottom torn paper effect */}
       <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none">
-        <Image
+        <ImageWithFallback
           src="/clientes/recorte-abajo.png"
           alt=""
           width={1920}
           height={200}
           className="w-full h-auto"
+          sizes="100vw"
         />
       </div>
     </section>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
+import { carouselBlurDataURL } from "@/lib/utils/image-placeholders";
 
 export default function InsightCard({
   title = "title",
@@ -14,7 +15,7 @@ export default function InsightCard({
   const shadow = `${isLeft ? "-10px 10px" : "10px 10px"} 0 0 ${colorVar}`;
   const paddingSide = isLeft ? "ps-24" : "pe-24";
 
-  // Overlap control: acercar columnas y “meter” el texto bajo la imagen
+  // Overlap control: acercar columnas y "meter" el texto bajo la imagen
   const textShift = isLeft ? "md:-ml-12 md:ps-12" : "md:-mr-12 md:pe-12";
 
   return (
@@ -37,7 +38,7 @@ export default function InsightCard({
         <h2 className="font-(family-name:--font-montserrat) text-2xl md:text-3xl lg:text-4xl font-black text-white uppercase italic mb-6">
           {title}
         </h2>
-        <p className="text-white text-base md:text-lg leading-relaxed">
+        <p className="text-white text-base md:text-lg leading-relaxed whitespace-pre-line">
           {description}
         </p>
       </div>
@@ -49,7 +50,15 @@ export default function InsightCard({
         )}
         style={{ boxShadow: shadow }}
       >
-        <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+          sizes="768px"
+          placeholder="blur"
+          blurDataURL={carouselBlurDataURL}
+        />
       </div>
     </div>
   );

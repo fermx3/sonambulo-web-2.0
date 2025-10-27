@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 type Props = {
@@ -20,6 +20,12 @@ export default function ProcessCard({
   description,
 }: Props) {
   const [active, setActive] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Detect touch device following project patterns
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window);
+  }, []);
 
   const handleKey = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -28,16 +34,34 @@ export default function ProcessCard({
     }
   };
 
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setActive((s) => !s);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      setActive(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      setActive(false);
+    }
+  };
+
   const paragraph =
     description ??
-    `${topText} ${bottomText}. Aquí va una breve explicación sobre este paso del proceso.`; // default
+    `${topText} ${bottomText}. Aquí va una breve explicación sobre este paso del proceso.`;
 
   return (
     <article
-      className="relative rounded-2xl overflow-hidden border-2 border-[var(--color-lime)] shadow-lg aspect-16/18 flex transition-all duration-200"
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
-      onClick={() => setActive((s) => !s)}
+      className="relative rounded-2xl overflow-hidden border-2 border-[var(--color-lime)] shadow-lg aspect-16/18 flex transition-all duration-200 touch-manipulation"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleInteraction}
       onKeyDown={handleKey}
       role="button"
       tabIndex={0}

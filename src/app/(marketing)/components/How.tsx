@@ -3,32 +3,38 @@
 import Image from "next/image";
 import { FadeUp } from "@/lib/anim/FadeUp";
 import FloatingAsterisks from "./FloatingAsterisks";
-import { CharacterReveal, TextHighlight, GlitchText } from "@/lib/anim/TextAnimations";
+import {
+  CharacterReveal,
+  TextHighlight,
+  GlitchText,
+} from "@/lib/anim/TextAnimations";
 
 export default function How() {
   return (
     <div
-      className="relative bg-transparent min-h-120vh md:min-h-[180vh] -mt-20 flex items-center justify-center flex-col overflow-hidden"
+      className="relative bg-transparent md:min-h-[220vh] -mt-20 flex items-center justify-center flex-col overflow-hidden"
       style={{
-      backgroundImage:
-        "linear-gradient(to bottom, var(--color-lime) 0, var(--color-lime) var(--how-lime-band, 30dvh), var(--color-ink) var(--how-lime-band, 18dvh), var(--color-ink) 100%)",
+        backgroundImage:
+          "linear-gradient(to bottom, var(--color-lime) 0, var(--color-lime) var(--how-lime-band, 30dvh), var(--color-ink) var(--how-lime-band, 18dvh), var(--color-ink) 100%)",
       }}
     >
       {/* Top decorative strip (torn paper) */}
-        <div
-          className="absolute w-vw left-0 right-0 top-0 h-[51vh] bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
-          aria-hidden
+      <div
+        className="absolute w-vw left-0 right-0 top-0 h-[51vh] bg-[url('/sections/how/recorte-papel.png')] bg-no-repeat bg-center bg-contain overflow-hidden"
+        aria-hidden
+      />
+
+      {/* Frase "Ok, pero todos dicen eso" arriba a la izquierda */}
+      <div className="relative self-start z-50 mt-50 pb-50 -mb-45 w-64 md:w-80 lg:w-96 aspect-4/2 pointer-events-none">
+        <Image
+          src="/sections/how/frase.png"
+          alt="Ok, pero todos dicen eso... Tu probablemente."
+          fill
+          className="object-contain absolute"
+          priority={true}
         />
-        {/* Frase "Ok, pero todos dicen eso" arriba a la izquierda */}
-        <div className="relative self-start z-50 mt-50 pb-50 -mb-45 w-64 md:w-80 lg:w-96 aspect-4/2 pointer-events-none">
-          <Image
-            src="/sections/how/frase.png"
-            alt="Ok, pero todos dicen eso... Tu probablemente."
-            fill
-            className="object-contain absolute"
-            priority={true}
-          />
-        </div>
+      </div>
+
       <div className="relative xl:container mx-auto px-6 lg:px-12 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left column: text */}
@@ -58,14 +64,15 @@ export default function How() {
                       initialColor="#ffffff"
                     >
                       trade
-                    </TextHighlight>{" "}hasta
-                    el{" "}
+                    </TextHighlight>{" "}
+                    hasta el{" "}
                     <TextHighlight
                       highlightColor="#33ffc2"
                       initialColor="#ffffff"
                     >
                       consumidor
-                    </TextHighlight>.
+                    </TextHighlight>
+                    .
                   </span>
                 </h2>
               </FadeUp>
@@ -79,7 +86,10 @@ export default function How() {
                 {/* Asteriscos flotantes que emergen de la caja fuerte */}
                 <FloatingAsterisks />
 
-                <div className="relative w-full h-64 md:h-80 lg:h-96" style={{ aspectRatio: "4/3" }}>
+                <div
+                  className="relative w-full h-64 md:h-80 lg:h-96"
+                  style={{ aspectRatio: "4/3" }}
+                >
                   <Image
                     src="/sections/how/caja-fuerte.png"
                     alt="caja fuerte"
@@ -89,29 +99,29 @@ export default function How() {
                     priority={true}
                   />
                 </div>
-
               </div>
             </FadeUp>
           </div>
         </div>
       </div>
 
-      {/* Second full-screen area to host the "manos" visual that overlaps the first section */}
-      <div className="relative w-full h-[50vh] md:h-[80vh] flex">
-        {/* place the hands image so it overlaps upward into the previous section */}
-        <div className="absolute inset-0 -top-[35vh] w-full h-[140vh] pointer-events-none">
-          <Image
-            src="/sections/how/manos.png"
-            alt="manos"
-            fill
-            className="object-contain"
-            sizes="100vw"
-            priority={false}
-          />
+      {/* Second full-screen area with proper spacing for hands */}
+      <div className="relative w-full min-h-[40vh] md:min-h-[100vh] flex -mt-32">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120vh] md:h-[140vh] pointer-events-none">
+          <div className="relative w-full h-full">
+            <Image
+              src="/sections/how/manos.png"
+              alt="manos"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
         </div>
 
         {/* Centro: banner "como-lo-hacemos" sobre las manos */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-[45vw] max-w-[600px] top-80 md:top-90 -mt-[8vh] pointer-events-none z-10 flex justify-center">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] md:w-[55vw] pointer-events-none z-10 flex justify-center">
           <div className="relative w-full" style={{ aspectRatio: "6 / 2" }}>
             <Image
               src="/sections/how/como-lo-hacemos.png"

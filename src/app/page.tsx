@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { Section } from "./(marketing)/components/Section";
 import Hero from "./(marketing)/components/Hero";
 import About from "./(marketing)/components/About";
@@ -9,6 +7,7 @@ import Process from "./(marketing)/components/Process";
 import Capabilities from "./(marketing)/components/Capabilities";
 import Clients from "./(marketing)/components/Clients";
 import Contact from "./(marketing)/components/Contact";
+import RibbonImage from "./(marketing)/components/RibbonImage";
 
 export default function Page() {
   return (
@@ -26,16 +25,7 @@ export default function Page() {
       <Section id="process">
         <Process />
       </Section>
-      <div className="relative -mt-4 lg:-mt-24 pointer-events-none z-50">
-        <Image
-          src="/sections/process/capabilities-ribbon.png"
-          alt="Capabilities"
-          width={1920}
-          height={200}
-          className="mx-auto"
-          priority={false}
-        />
-      </div>
+      <RibbonImage />
       <Section id="capabilities">
         <Capabilities />
       </Section>

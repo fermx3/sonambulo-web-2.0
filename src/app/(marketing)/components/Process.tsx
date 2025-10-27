@@ -10,7 +10,7 @@ export default function Process() {
       topText: "Construcción",
       bottomText: "de marca",
       description:
-        "Definimos la identidad y la voz de las marcas a través de una rigurosa investigación, andlisis de mercado y entendimiento del contexto de cada cliente. Desarrollamos elementos visuales y de comunicación basados en nuestro diagnóstico para diferenciarnos de la competencia y conectar con la"
+        "Definimos la identidad y la voz de las marcas a través de una rigurosa investigación, andlisis de mercado y entendimiento del contexto de cada cliente. Desarrollamos elementos visuales y de comunicación basados en nuestro diagnóstico para diferenciarnos de la competencia y conectar con la audiencia objetivo."
     },
     {
       src: "/sections/process/proceso-2.png",

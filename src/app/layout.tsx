@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "Sonámbulo Estudio Creativo",
     images: [
       {
-        url: "/og-image.jpg", // Necesitamos esta imagen
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sonámbulo Estudio Creativo - Creativity without rest",
@@ -92,6 +92,10 @@ export const metadata: Metadata = {
     google: "tu-codigo-google-search-console", // Actualizar cuando tengamos el código
   },
   category: "Design Studio",
+  other: {
+    "msapplication-TileColor": "#201f1f",
+    "msapplication-config": "/browserconfig.xml",
+  },
 };
 
 // next/font (optimized)
@@ -118,10 +122,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           crossOrigin="anonymous"
         />
         <link rel="stylesheet" href="https://use.typekit.net/bms8ymp.css" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Favicons - Orden importa para compatibilidad */}
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-title" content="SNMBL" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="max-w-screen">
         <DesktopCursor />

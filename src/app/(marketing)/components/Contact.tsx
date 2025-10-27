@@ -40,7 +40,7 @@ export default function Contact() {
           draggable={false}
         />
       </div>
-      <div className="min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover z-30">
+      <div className="h-screen md:h-[110vh] md:min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover z-30">
         {/* "tienes un problema?" image */}
         <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-12">
           <Image
@@ -51,11 +51,11 @@ export default function Contact() {
             priority={true}
           />
         </div>
-        <div className="relative z-10 mx-auto py-54 md:py-24 flex flex-col md:flex-row items-end-safe h-[110vh] md:gap-12">
+        <div className="relative z-10 md:mx-auto py-54 md:py-24 flex flex-col md:flex-row items-end-safe h-[110vh] md:gap-12">
           {/* left: big CONTACT T* + phone image */}
-          <div className="w-full flex items-center justify-center gap-6">
+          <div className="w-full flex items-center pe-10 md:pe-0 justify-end-safe md:justify-center gap-6">
             <div className="absolute bottom-0 left-0 flex-shrink-0 w-56 md:w-80 lg:w-96">
-              <div className="relative -left-20 -bottom-10 aspect-3/4 lg:h-[80vh] md:h-[60vh] h-[40vh]">
+              <div className="relative bottom-20 md:-left-20 md:-bottom-10 aspect-3/4 lg:h-[80vh] md:h-[60vh] h-[40vh]">
                 <Image
                   src="/sections/contact/telefono.png"
                   alt="phone"
@@ -68,7 +68,7 @@ export default function Contact() {
             </div>
 
             <FadeUp>
-              <div className="relative lg:h-[60vh] ratio-1/1 md:h-[60vh] h-[40vh] w-48 md:w-60 lg:w-[60vh]">
+              <div className="relative lg:h-[60vh] ratio-1/1 md:h-[60vh] h-[35vh] w-48 md:w-60 lg:w-[60vh] md:transform md:-translate-y-16 lg:-translate-y-24">
                 <Image
                   src="/sections/contact/contacto-text.png"
                   alt="Contacto"
@@ -82,16 +82,19 @@ export default function Contact() {
           </div>
 
           {/* right: message, email, socials, location */}
-          <div className="w-full flex flex-col items-end justify-end gap-6 md:gap-12 px-12 md:px-0">
+          <div className="w-full flex flex-col items-end justify-end gap-6 md:gap-12 md:px-0 md:-translate-x-16 md:translate-y-12 lg:-translate-x-24 lg:translate-y-16">
             <FadeUp>
-              <div className="px-12 w-full md:w-full flex flex-col items-center justify-center text-white">
+              <div className="pe-6 md:px-12 w-full md:w-full flex flex-col items-end md:items-center justify-end-safe md:justify-center text-white">
                 <div className="py-8 max-w-md w-full text-center">
                   <a
                     href="mailto:hola@estudiosonambulo.com"
-                    className="inline-block text-[var(--color-white)] px-5 py-3 rounded-md mb-6 hover:brightness-110 text-center text-sm md:text-base lg:text-3xl font-(family-name:--font-darker) font-semibold"
+                    className="inline-block text-[var(--color-white)] px-5 md:py-3 rounded-md mb-6 hover:brightness-110 text-center text-sm md:text-base lg:text-3xl font-(family-name:--font-darker) font-semibold"
                   >
                     HOLA@ESTUDIOSONAMBULO.COM
                   </a>
+                  <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold md:hidden block">
+                    ( ROMA NORTE, CUAUHTÉMOC, CDMX )
+                  </p>
 
                   <div className="flex items-center justify-center gap-4 mb-6">
                     <a
@@ -141,7 +144,7 @@ export default function Contact() {
                     </a>
                   </div>
 
-                  <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold">
+                  <p className="text-center text-sm md:text-base lg:text-2xl font-(family-name:--font-darker) font-semibold hidden md:block">
                     ( ROMA NORTE, CUAUHTÉMOC, CDMX )
                   </p>
                 </div>

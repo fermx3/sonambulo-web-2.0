@@ -15,19 +15,23 @@ const MENU_ITEMS: { label: string; href: string }[] = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
   const openRef = useRef(open);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Detectar si estamos en mobile
+  // Detectar si estamos en mobile y obtener dimensiones del viewport
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint es 768px
+    const updateViewport = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setIsMobile(width < 768);
+      setViewportSize({ width, height });
     };
 
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
 
-    return () => window.removeEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', updateViewport);
   }, []);
 
   // keep ref in sync via click handlers
@@ -104,7 +108,7 @@ export default function Nav() {
         >
           {/* Background glow effect */}
           <motion.span
-            className="absolute inset-0 rounded opacity-20"
+            className="absolute inset-0 rounded opacity-20 pointer-events-none"
             animate={{
               background: open
                 ? "radial-gradient(circle, rgba(217, 255, 3, 0.3) 0%, transparent 70%)"
@@ -116,7 +120,7 @@ export default function Nav() {
 
           {/* Text with morphing effect */}
           <motion.span
-            className="relative z-10"
+            className="relative z-10 pointer-events-none"
             animate={{
               letterSpacing: open ? "0.15em" : "0.1em"
             }}
@@ -127,7 +131,7 @@ export default function Nav() {
 
           {/* Animated border */}
           <motion.span
-            className="absolute inset-0 border-2 rounded"
+            className="absolute inset-0 border-2 rounded pointer-events-none"
             animate={{
               borderColor: open ? "var(--color-lime)" : "transparent",
               scale: open ? 1 : 0.9
@@ -175,8 +179,8 @@ export default function Nav() {
                   height: "50px"
                 }}
                 animate={{
-                  width: isMobile ? "90vw" : "280px", // Mobile: 320px, Desktop: 280px
-                  height: isMobile ? "90vh" : "280px" // Mobile: 320px, Desktop: 280px
+                  width: isMobile ? `${viewportSize.width * 0.9}px` : "280px",
+                  height: isMobile ? `${viewportSize.height * 0.9}px` : "280px"
                 }}
                 transition={{
                   duration: 0.4,
@@ -192,16 +196,16 @@ export default function Nav() {
                   role="none"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
+                  transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
-                  {MENU_ITEMS.map((item, index) => (
+                  {MENU_ITEMS.map((item) => (
                     <motion.li
                       key={item.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
-                        duration: 0.3,
-                        delay: 0.3 + (index * 0.1),
+                        duration: 0.2,
+                        delay: 0.15,
                         ease: "easeOut"
                       }}
                     >

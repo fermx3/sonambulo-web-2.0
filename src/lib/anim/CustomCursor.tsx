@@ -102,13 +102,21 @@ export function CustomCursor() {
         };
       case "button":
         return {
+          size: 45,
+          backgroundColor: "transparent",
+          border: "none",
+          content: "cursor-icon",
+          textColor: "#33ffc2",
+          useIcon: true,
+        };
+        /* return {
           size: 35,
           backgroundColor: "rgba(6, 6, 255, 0.6)",
           border: "2px solid rgba(6, 6, 255, 1)",
           content: "✱",
           textColor: "#fff",
           useIcon: false,
-        };
+        }; */
       case "image":
         return {
           size: 32,
@@ -195,44 +203,44 @@ export function CustomCursor() {
               className="drop-shadow-lg pointer-events-none select-none"
               style={{
                 filter: cursorState === "loading"
-                  ? "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))"
-                  : cursorState === "link"
-                  ? "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6))"
-                  : "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4))",
+                  ? "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))"
+                  : cursorState === "link" || cursorState === "button"
+                  ? "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))"
+                  : "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))",
               }}
               animate={{
                 filter: cursorState === "loading"
                   ? [
-                      "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))",
-                      "drop-shadow(0 0 12px rgba(255, 255, 255, 1))",
-                      "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))"
+                      "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))",
+                      "drop-shadow(0 0 12px rgba(255, 255, 255, 1)) drop-shadow(0 0 3px rgba(0, 0, 0, 1))",
+                      "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))"
                     ]
-                  : cursorState === "link"
+                  : cursorState === "link" || cursorState === "button"
                   ? [
-                      "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6))",
-                      "drop-shadow(0 0 16px rgba(51, 255, 194, 0.9))",
-                      "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6))"
+                      "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))",
+                      "drop-shadow(0 0 16px rgba(51, 255, 194, 0.9)) drop-shadow(0 0 3px rgba(0, 0, 0, 1))",
+                      "drop-shadow(0 0 8px rgba(51, 255, 194, 0.6)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))"
                     ]
                   : [
-                      "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4))",
-                      "drop-shadow(0 0 12px rgba(217, 255, 3, 0.6))",
-                      "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4))"
+                      "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))",
+                      "drop-shadow(0 0 12px rgba(217, 255, 3, 0.6)) drop-shadow(0 0 3px rgba(0, 0, 0, 1))",
+                      "drop-shadow(0 0 6px rgba(217, 255, 3, 0.4)) drop-shadow(0 0 2px rgba(0, 0, 0, 0.8))"
                     ],
-                scale: cursorState === "link" ? [1, 1.1, 1] : 1,
-                rotate: cursorState === "link" ? [0, 5, -5, 0] : 0
+                scale: cursorState === "link" || cursorState === "button" ? [1, 1.1, 1] : 1,
+                rotate: cursorState === "link" || cursorState === "button" ? [0, 5, -5, 0] : 0
               }}
               transition={{
                 filter: {
-                  duration: cursorState === "loading" ? 1 : cursorState === "link" ? 1.5 : 2,
+                  duration: cursorState === "loading" ? 1 : cursorState === "link" || cursorState === "button" ? 1.5 : 2,
                   repeat: Infinity,
                   ease: "easeInOut"
                 },
-                scale: cursorState === "link" ? {
+                scale: cursorState === "link" || cursorState === "button" ? {
                   duration: 1.5,
                   repeat: Infinity,
                   ease: "easeInOut"
                 } : {},
-                rotate: cursorState === "link" ? {
+                rotate: cursorState === "link" || cursorState === "button" ? {
                   duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut"

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { cn } from "../utils/cn";
 
 // Typewriter effect with customizable speed
 export function TypewriterText({
@@ -307,38 +308,30 @@ export function MorphingText({
 // Text highlight effect that runs on scroll
 export function TextHighlight({
   children,
-  highlightColor = "var(--color-lime)",
+  highlightColor = "#d9ff03",
+  initialColor = "inherit",
   className = "",
 }: {
-  children: string;
+  children: React.ReactNode;
   highlightColor?: string;
+  initialColor?: string;
   className?: string;
 }) {
   return (
     <motion.span
-      className={`relative inline-block ${className}`}
-      whileInView="visible"
-      initial="hidden"
-      viewport={{ once: true, amount: 0.5 }}
+      className={cn("relative inline-block", className)}
+      initial={{ color: initialColor }}
+      whileInView={{
+        color: highlightColor
+      }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+        delay: 0.2
+      }}
+      viewport={{ once: true, margin: "-50px" }}
     >
-      {/* Background highlight */}
-      <motion.span
-        className="absolute inset-0 z-0"
-        style={{ backgroundColor: highlightColor }}
-        variants={{
-          hidden: { scaleX: 0, originX: 0 },
-          visible: {
-            scaleX: 1,
-            transition: {
-              duration: 0.8,
-              ease: [0.16, 1, 0.3, 1]
-            }
-          },
-        }}
-      />
-
-      {/* Text */}
-      <span className="relative z-10">{children}</span>
+      {children}
     </motion.span>
   );
 }

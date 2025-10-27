@@ -54,15 +54,15 @@ export default function How() {
                   <span className="block text-2xl md:text-3xl font-medium mt-2 text-[var(--color-white)] lg:translate-x-24">
                     a las marcas desde el{" "}
                     <TextHighlight
-                      highlightColor="rgba(51, 255, 194, 0.3)"
-                      className="text-[var(--color-teal)]"
+                      highlightColor="#33ffc2"
+                      initialColor="#ffffff"
                     >
                       trade
-                    </TextHighlight> hasta
+                    </TextHighlight>{" "}hasta
                     el{" "}
                     <TextHighlight
-                      highlightColor="rgba(51, 255, 194, 0.3)"
-                      className="text-[var(--color-teal)]"
+                      highlightColor="#33ffc2"
+                      initialColor="#ffffff"
                     >
                       consumidor
                     </TextHighlight>.

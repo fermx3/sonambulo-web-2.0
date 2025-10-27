@@ -84,14 +84,30 @@ export default function How() {
             <FadeUp>
               <div className="relative w-full max-w-[520px] lg:max-w-[600px]">
                 {/* Asteriscos flotantes que emergen de la caja fuerte */}
-                <FloatingAsterisks />
 
                 <div
                   className="relative w-full h-64 md:h-80 lg:h-96"
                   style={{ aspectRatio: "4/3" }}
                 >
                   <Image
-                    src="/sections/how/caja-fuerte.png"
+                    src="/sections/how/cajafuerte-formas.png"
+                    alt="caja fuerte"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                    priority={true}
+                  />
+                  <Image
+                    src="/sections/how/cajafuerte-fondo.png"
+                    alt="caja fuerte"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                    priority={true}
+                  />
+                  <FloatingAsterisks />
+                  <Image
+                    src="/sections/how/cajafuerte-tapa.png"
                     alt="caja fuerte"
                     fill
                     className="object-contain"

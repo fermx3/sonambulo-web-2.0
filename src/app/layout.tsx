@@ -6,6 +6,7 @@ import { Montserrat, Darker_Grotesque } from "next/font/google";
 import Nav from "./(marketing)/components/Nav";
 import { CustomCursor } from "@/lib/anim/CustomCursor";
 import { CursorTrail } from "@/lib/anim/ParticleSystem";
+import Footer from "./(marketing)/components/Footer";
 
 // Component wrapper for desktop-only cursor
 function DesktopCursor() {
@@ -142,6 +143,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <Nav />
         <SmoothScroll>{children}</SmoothScroll>
+        <Footer />
       </body>
     </html>
   );

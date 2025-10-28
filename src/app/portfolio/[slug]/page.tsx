@@ -99,7 +99,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <main
-      className="min-h-screen flex items-center flex-col justify-center text-white relative"
+      className="min-h-screen flex items-center flex-col justify-center text-white relative pb-40"
       style={{
         backgroundImage: `
           linear-gradient(to bottom, var(--color-ink) 0%, var(--color-ink) 30%, transparent 40%),

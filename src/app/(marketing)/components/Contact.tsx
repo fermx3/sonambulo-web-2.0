@@ -40,7 +40,7 @@ export default function Contact() {
           draggable={false}
         />
       </div>
-      <div className="h-screen md:h-[110vh] md:min-h-[110vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover z-30">
+      <div className="h-screen min-h-[120vh] md:min-h-[140vh] w-full relative overflow-hidden bg-[url('/sections/contact/contacto-fondo.png')] bg-cover z-30">
         {/* "tienes un problema?" image */}
         <div className="absolute  w-[50vw] h-52 pointer-events-none right-0 md:top-40 md:h-72 lg:h-96 md:w-[50vw] lg:w-[40vw] lg:top-50 lg:right-0 top-12">
           <Image

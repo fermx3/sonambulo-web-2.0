@@ -1,5 +1,3 @@
-import Footer from './components/Footer'
-
 export default function PortfolioLayout({
   children,
 }: {
@@ -8,7 +6,6 @@ export default function PortfolioLayout({
   return (
     <>
       {children}
-      <Footer />
     </>
   )
 }

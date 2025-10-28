@@ -17,7 +17,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[var(--color-ink)] text-black z-50 -mt-10 md:h-auto h-[120vh]">
+    <footer className="relative bg-transparent text-black z-50 md:-mt-40 -mt-60 md:h-auto h-[120vh]">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 -top-12">
         <Image

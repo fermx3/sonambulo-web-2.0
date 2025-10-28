@@ -16,7 +16,7 @@ export default function Process() {
       src: "/sections/process/proceso-2.png",
       alt: "Road to market",
       topText: "Blindaje del",
-      bottomText: "Road to Market",
+      bottomText: "Road to\nMarket",
       description:
         "Fortalecemos la presencia y desarrollo de nuestros clientes desde los canales de distribución, hasta transformadores a través de planes de crecimiento, desarrollo y fidelización."
     },
@@ -73,7 +73,7 @@ export default function Process() {
             staggerDelay={0.2}
             direction="up"
             distance={50}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-stretch mx-12"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-stretch mx-4 md:mx-8 lg:mx-12"
           >
             {cards.map((c, idx) => (
               <ProcessCard

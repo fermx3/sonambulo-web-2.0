@@ -31,7 +31,7 @@ export default function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   if (!images || images.length === 0) return null
 
   return (
-    <section className="relative w-screen md:min-h-screen min-h-[50vh] flex items-center justify-center bg-[var(--color-ink)] overflow-hidden">
+    <section className="relative w-screen md:min-h-screen min-h-[50vh] flex items-center justify-center overflow-hidden">
       {/* Cuadros de colores de fondo */}
       <div className="absolute w-[140vw] mx-auto pointer-events-none flex items-center justify-center gap-8 lg:gap-12">
         {/* Cuadro verde */}

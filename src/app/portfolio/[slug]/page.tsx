@@ -98,7 +98,19 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen flex items-center flex-col justify-center bg-[var(--color-ink)] text-white">
+    <main
+      className="min-h-screen flex items-center flex-col justify-center text-white relative"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom, var(--color-ink) 0%, var(--color-ink) 30%, transparent 40%),
+          linear-gradient(to top, var(--color-ink) 0%, var(--color-ink) 6%, transparent 20%),
+          url('/sections/portfolio/fondo.png')
+        `,
+        backgroundSize: 'cover, cover, cover',
+        backgroundPosition: 'center, center, center',
+        backgroundRepeat: 'no-repeat, no-repeat, no-repeat'
+      }}
+    >
       <PortfolioHero name={client.name} portada={client.portada} />
       <Insights insights={client.insights} />
       <PortfolioCarousel images={client.carousel_images} />

@@ -11,7 +11,7 @@ type Insight = {
 
 export default function Insights({ insights = [] }: { insights?: Insight[] }) {
   return (
-    <div className="min-h-screen py-20 space-y-20">
+    <div className="min-h-screen py-20 space-y-20 relative">
       {insights.map((insight, index) => (
         <InsightCard
           key={index}

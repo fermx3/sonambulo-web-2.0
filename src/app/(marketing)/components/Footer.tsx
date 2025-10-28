@@ -33,9 +33,9 @@ export default function Footer() {
 
       {/* Contenido del footer */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 pt-20 sm:pt-24 md:pt-28 lg:pt-42 md:justify-start justify-end flex flex-col h-full">
-        <div className="grid grid-cols-1 md:grid-cols-5 md:gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 md:gap-8 mb-8">
           {/* Logo */}
-          <div className="md:col-span-1 md:mb-0 mb-6">
+          <div className="md:col-span-1 md:mb-0 mb-6 col-span-full">
             <Image
               src="/logo-light-bg.svg"
               alt="Sonámbulo Estudio Creativo"
@@ -45,8 +45,73 @@ export default function Footer() {
             />
           </div>
 
+          {/* Layout móvil: 2 columnas */}
+          <div className="col-span-full grid grid-cols-2 gap-4 md:hidden mb-6">
+            {/* COLUMNA 1 - Lado izquierdo en móvil */}
+            <div className="font-black">
+              <ul className="">
+                <li>
+                  <Link href="/" className="hover:text-[var(--color-blue)]">
+                    INICIO
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#about" className="hover:text-[var(--color-blue)]">
+                    ¿QUIÉNES SOMOS?
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#how" className="hover:text-[var(--color-blue)]">
+                    ¿CÓMO LO HACEMOS?
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* COLUMNAS 2 y 3 combinadas - Lado derecho en móvil */}
+            <div className="font-black">
+              <ul className="md:mb-4 mb-0">
+                <li>
+                  <Link
+                    href="/#process"
+                    className="hover:text-[var(--color-blue)]"
+                  >
+                    PROCESO
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/#capabilities"
+                    className="hover:text-[var(--color-blue)]"
+                  >
+                    CAPABILITIES
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/#clients"
+                    className="hover:text-[var(--color-blue)]"
+                  >
+                    NUESTROS CLIENTES
+                  </Link>
+                </li>
+              </ul>
+              <ul className="">
+                <li>
+                  <Link
+                    href="/#contact"
+                    className="hover:text-[var(--color-blue)]"
+                  >
+                    CONTACTO
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Layout desktop: columnas separadas (oculto en móvil) */}
           {/* COLUMNA 1 */}
-          <div className="md:col-span-1 font-black">
+          <div className="md:col-span-1 font-black hidden md:block">
             <ul className="">
               <li>
                 <Link href="/" className="hover:text-[var(--color-blue)]">
@@ -67,7 +132,7 @@ export default function Footer() {
           </div>
 
           {/* COLUMNA 2 */}
-          <div className="md:col-span-1 font-black">
+          <div className="md:col-span-1 font-black hidden md:block">
             <ul className="">
               <li>
                 <Link
@@ -97,7 +162,7 @@ export default function Footer() {
           </div>
 
           {/* COLUMNA 3 */}
-          <div className="md:col-span-1 font-black">
+          <div className="md:col-span-1 font-black hidden md:block">
             <ul className="">
               <li>
                 <Link
@@ -111,8 +176,8 @@ export default function Footer() {
           </div>
 
           {/* SÍGUENOS y Newsletter */}
-          <div className="md:col-span-1 font-black md:mt-0 mt-6">
-            <div className="mb-3 flex gap-3">
+          <div className="col-span-full md:col-span-2 font-black md:mt-0 mt-6 text-center md:text-left md:flex-col flex flex-col-reverse items-center md:items-start">
+            <div className="mb-3 flex gap-3 md:pt-0 pt-6 flex-col items-center md:items-start">
               <h3 className="">SÍGUENOS</h3>
               <div className="flex space-x-2">
                 <Link

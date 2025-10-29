@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { FadeUp } from "@/lib/anim/FadeUp";
+import { SOCIAL_LINKS } from "@/lib/constants/social-links";
 
 export default function Contact() {
   return (
@@ -98,7 +99,9 @@ export default function Contact() {
 
                   <div className="flex items-center justify-center gap-4 mb-6">
                     <a
-                      href="#"
+                      href={SOCIAL_LINKS.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="facebook"
                       className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
                     >
@@ -113,7 +116,9 @@ export default function Contact() {
                       />
                     </a>
                     <a
-                      href="#"
+                      href={SOCIAL_LINKS.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="instagram"
                       className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
                     >
@@ -128,7 +133,9 @@ export default function Contact() {
                       />
                     </a>
                     <a
-                      href="#"
+                      href={SOCIAL_LINKS.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="linkedin"
                       className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20"
                     >

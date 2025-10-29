@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { SOCIAL_LINKS } from "@/lib/constants/social-links";
 
 const year = new Date().getFullYear();
 
@@ -192,7 +193,9 @@ export default function Footer() {
               <h3 className="">SÍGUENOS</h3>
               <div className="flex space-x-4 md:space-x-2">
                 <Link
-                  href="#"
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 md:w-6 md:h-6 bg-blue-600 text-white rounded-full flex items-center justify-center"
                 >
                   <Image
@@ -206,7 +209,9 @@ export default function Footer() {
                   />
                 </Link>
                 <Link
-                  href="#"
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 md:w-6 md:h-6 bg-purple-600 text-white rounded-full flex items-center justify-center"
                 >
                   <Image
@@ -220,7 +225,9 @@ export default function Footer() {
                   />
                 </Link>
                 <Link
-                  href="#"
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 md:w-6 md:h-6 bg-blue-700 text-white rounded-full flex items-center justify-center"
                 >
                   <Image

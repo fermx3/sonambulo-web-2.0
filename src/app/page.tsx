@@ -18,7 +18,7 @@ export default function Page() {
       <Section id="about">
         <About />
       </Section>
-      <Section id="how">
+      <Section id="how" scrollOffset>
         <How />
         <How2 />
       </Section>
@@ -32,7 +32,7 @@ export default function Page() {
       <Section id="clients">
         <Clients />
       </Section>
-      <Section id="contact">
+      <Section id="contact" scrollOffset>
         <Contact />
       </Section>
     </main>

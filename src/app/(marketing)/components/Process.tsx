@@ -28,7 +28,7 @@ export default function Process() {
   ];
 
   return (
-    <div className="relative min-h-[110vh] w-full bg-[var(--color-blue)]" style={{ zIndex: 1700 }}>
+    <div className="relative min-h-[110vh] w-full bg-[var(--color-blue)]">
       {/* Imagen de recorte que se superpone a la sección anterior */}
       <div className="absolute inset-x-0 -top-12 h-[40vh] z-10">
         <Image
@@ -42,7 +42,7 @@ export default function Process() {
       </div>
 
       {/* Contenido principal */}
-      <div className="relative min-h-[110dvh] flex flex-col justify-center items-center -mt-10" style={{ zIndex: 1710 }}>
+      <div className="relative min-h-[110dvh] flex flex-col justify-center items-center -mt-10">
         <div className="container mx-auto px-6 lg:px-12 pt-50 md:pt-20 pb-34 lg:pb-20">
           {/* Top title */}
           <h2

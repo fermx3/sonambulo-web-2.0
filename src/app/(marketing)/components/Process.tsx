@@ -7,24 +7,21 @@ export default function Process() {
     {
       src: "/sections/process/proceso-1.png",
       alt: "Construcción de marca",
-      topText: "Construcción",
-      bottomText: "de marca",
+      titleNumber: 1 as const,
       description:
         "Definimos la identidad y la voz de las marcas a través de una rigurosa investigación, andlisis de mercado y entendimiento del contexto de cada cliente. Desarrollamos elementos visuales y de comunicación basados en nuestro diagnóstico para diferenciarnos de la competencia y conectar con la audiencia objetivo."
     },
     {
       src: "/sections/process/proceso-2.png",
       alt: "Road to market",
-      topText: "Blindaje del",
-      bottomText: "Road to\nMarket",
+      titleNumber: 2 as const,
       description:
         "Fortalecemos la presencia y desarrollo de nuestros clientes desde los canales de distribución, hasta transformadores a través de planes de crecimiento, desarrollo y fidelización."
     },
     {
       src: "/sections/process/proceso-3.png",
       alt: "Consumidor final",
-      topText: "Consumidor",
-      bottomText: "Final",
+      titleNumber: 3 as const,
       description:
         "Hacemos que las marcas importen a través de estrategias poderosas basadas en la relevancia cultural."
     },
@@ -80,8 +77,7 @@ export default function Process() {
                 key={idx}
                 src={c.src}
                 alt={c.alt}
-                topText={c.topText}
-                bottomText={c.bottomText}
+                titleNumber={c.titleNumber}
                 description={c.description}
               />
             ))}

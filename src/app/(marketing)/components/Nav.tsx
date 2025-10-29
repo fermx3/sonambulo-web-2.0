@@ -173,7 +173,7 @@ export default function Nav() {
             >
               {/* Fondo que se expande */}
               <motion.div
-                className="relative bg-[rgba(3,3,3,0.95)] border border-[var(--color-lime)] rounded-md shadow-2xl backdrop-blur-sm overflow-hidden"
+                className="relative bg-[rgba(3,3,3,0.95)] max-w-[90vw] max-h-[95vh] border border-[var(--color-lime)] rounded-md shadow-2xl backdrop-blur-sm overflow-hidden"
                 initial={{
                   width: isMobile ? "120px" : "140px",
                   height: "50px"

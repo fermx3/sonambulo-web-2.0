@@ -65,31 +65,31 @@ export default function ProcessCard({
       tabIndex={0}
       aria-pressed={active}
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <Image
           src={src}
           alt={alt}
           fill
-          className={`object-cover transition-all duration-300 ${active ? "brightness-20" : "brightness-100"}`}
+          className={`object-cover transition-all duration-300 pointer-events-none ${active ? "brightness-20" : "brightness-100"}`}
           sizes="(max-width: 1024px) 100vw, 33vw"
           priority={false}
         />
       </div>
-      <div className="relative w-full z-10 p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center text-center h-full overflow-hidden">
+      <div className="relative w-full z-30 p-2 sm:p-3 md:p-4 flex flex-col justify-center items-center text-center h-full overflow-hidden pointer-events-none">
         {!active ? (
-          <div className="flex flex-col justify-center items-center h-full w-full max-w-full gap-1">
+          <div className="flex flex-col justify-center items-center h-full w-full max-w-full gap-1 pointer-events-none">
             <Image
               src={`/sections/process/titulo-${titleNumber}.svg`}
               alt={alt}
               width={200}
               height={120}
-              className="w-auto h-auto max-w-full object-contain"
+              className="w-auto h-auto max-w-full object-contain pointer-events-none"
               priority={false}
             />
           </div>
         ) : (
-          <div className="flex items-center justify-center h-full w-full">
-            <p className="text-[var(--color-white)] text-xl font-medium leading-relaxed px-2 max-w-full">
+          <div className="flex items-center justify-center h-full w-full pointer-events-none">
+            <p className="text-[var(--color-white)] text-xl font-medium leading-relaxed px-2 max-w-full pointer-events-none">
               {paragraph}
             </p>
           </div>

@@ -48,7 +48,7 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="relative min-h-screen md:min-h-[130dvh] mt-0 md:-mt-54 md:py-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover">
+    <div className="relative min-h-screen md:min-h-[130dvh] mt-0 md:-mt-54 md:py-50 flex flex-col justify-start items-start py-20 px-6 lg:px-24 bg-[url('/sections/capabilities/fondo-capabilities.png')] bg-no-repeat bg-cover overflow-x-hidden">
       <h2 className="text-[var(--color-white)] text-4xl md:text-5xl mb-24 font-(family-name:--font-alfarn)">
         CAPABILITIES
       </h2>

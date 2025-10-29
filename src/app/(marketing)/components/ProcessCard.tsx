@@ -89,7 +89,7 @@ export default function ProcessCard({
           </div>
         ) : (
           <div className="flex items-center justify-center h-full w-full pointer-events-none">
-            <p className="text-[var(--color-white)] text-xl font-medium leading-relaxed px-2 max-w-full pointer-events-none">
+            <p className="text-[var(--color-white)] text-xl sm:text-xs lg:text-xl font-medium leading-relaxed px-2 max-w-full pointer-events-none">
               {paragraph}
             </p>
           </div>

@@ -17,15 +17,26 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-transparent text-black z-50 md:-mt-40 -mt-60 md:h-auto h-[120vh]">
+    <footer className="relative bg-transparent text-black z-50 md:-mt-40 -mt-60 md:h-auto h-[100vh]">
       {/* Imagen de fondo */}
-      <div className="absolute inset-0 -top-12">
+      <div className="absolute inset-0 md:-top-12">
+        {/* Imagen para móvil */}
+        <Image
+          src="/sections/footer/fondo-vertical.png"
+          alt="Footer background mobile"
+          fill
+          className="object-cover object-bottom md:hidden"
+          sizes="100vw"
+          priority
+          quality={90}
+        />
+        {/* Imagen para desktop */}
         <Image
           src="/sections/footer/fondo-footer.png"
-          alt="Footer background"
+          alt="Footer background desktop"
           fill
-          className="object-cover object-bottom"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+          className="object-cover object-bottom hidden md:block"
+          sizes="100vw"
           priority
           quality={90}
         />
@@ -46,10 +57,10 @@ export default function Footer() {
           </div>
 
           {/* Layout móvil: 2 columnas */}
-          <div className="col-span-full grid grid-cols-2 gap-4 md:hidden mb-6">
+          <div className="col-span-full grid grid-cols-2 gap-4 md:hidden mb-6 text-lg">
             {/* COLUMNA 1 - Lado izquierdo en móvil */}
             <div className="font-black">
-              <ul className="">
+              <ul className="space-y-1">
                 <li>
                   <Link href="/" className="hover:text-[var(--color-blue)]">
                     INICIO
@@ -70,7 +81,7 @@ export default function Footer() {
 
             {/* COLUMNAS 2 y 3 combinadas - Lado derecho en móvil */}
             <div className="font-black">
-              <ul className="md:mb-4 mb-0">
+              <ul className="md:mb-4 mb-2 space-y-1">
                 <li>
                   <Link
                     href="/#process"
@@ -96,7 +107,7 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
-              <ul className="">
+              <ul className="space-y-1">
                 <li>
                   <Link
                     href="/#contact"
@@ -176,13 +187,13 @@ export default function Footer() {
           </div>
 
           {/* SÍGUENOS y Newsletter */}
-          <div className="col-span-full md:col-span-2 font-black md:mt-0 mt-6 text-center md:text-left md:flex-col flex flex-col-reverse items-center md:items-start">
+          <div className="col-span-full md:col-span-2 font-black md:mt-0 mt-6 text-center md:text-left md:flex-col flex flex-col-reverse items-center md:items-start text-lg md:text-base">
             <div className="mb-3 flex gap-3 md:pt-0 pt-6 flex-col items-center md:items-start">
               <h3 className="">SÍGUENOS</h3>
-              <div className="flex space-x-2">
+              <div className="flex space-x-4 md:space-x-2">
                 <Link
                   href="#"
-                  className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center"
+                  className="w-8 h-8 md:w-6 md:h-6 bg-blue-600 text-white rounded-full flex items-center justify-center"
                 >
                   <Image
                     src="/icons/facebook-blue.png"
@@ -196,7 +207,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href="#"
-                  className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center"
+                  className="w-8 h-8 md:w-6 md:h-6 bg-purple-600 text-white rounded-full flex items-center justify-center"
                 >
                   <Image
                     src="/icons/instagram-blue.png"
@@ -210,7 +221,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href="#"
-                  className="w-6 h-6 bg-blue-700 text-white rounded-full flex items-center justify-center"
+                  className="w-8 h-8 md:w-6 md:h-6 bg-blue-700 text-white rounded-full flex items-center justify-center"
                 >
                   <Image
                     src="/icons/linkedin-blue.png"

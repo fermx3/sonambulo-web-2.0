@@ -34,7 +34,7 @@ export default function PortfolioHero({ name, portada }: { name: string; portada
 
       {/* Main content */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black italic text-transparent bg-clip-text bg-[var(--color-lime)] text-center leading-tight tracking-tight uppercase">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black italic text-transparent bg-clip-text bg-[var(--color-lime)] text-center leading-tight tracking-tight uppercase px-4">
           {name}
         </h1>
       </div>
